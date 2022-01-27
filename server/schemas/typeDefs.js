@@ -8,33 +8,6 @@ const typeDefs = gql`
     password: String!
     }
 
-  type artists {
-    _id: ID!
-    username: String!
-    artist name: String
-    artist info: String
-    spotify: String
-    apple: String
-    youtube: String
-    soundcloud: String
-    } 
-
-    type winners {
-      _id: ID!
-      username: String!
-      artistname: String!
-      submission file: String!
-      submissionInfo: String!
-      votes: Int!
-      } 
-
-    type submissions {
-      _id: ID!
-      username: String!
-      submission file: String!
-      submission: String!
-      votes: Int!
-      } 
 `;
 
 module.exports = typeDefs;
@@ -58,3 +31,31 @@ module.exports = typeDefs;
   
 
 
+                      // type artists {
+                      //   _id: ID!
+                      //   username: String!
+                      //   artist name: String
+                      //   artist info: String
+                      //   spotify: String
+                      //   apple: String
+                      //   youtube: String
+                      //   soundcloud: String
+                      //   } 
+                    
+                      //   type winners {
+                      //     _id: ID!
+                      //     username: String!
+                      //     artistname: String!
+                      //     submission file: String!
+                      //     submissionInfo: String!
+                      //     votes: Int!
+                      //     } 
+                    
+                      //   type submissions {
+                      //     _id: ID!
+                      //     username: String!
+                      //     submission file: String!
+                      //     submission: String!
+                      //     votes: Int!
+                      //     } 
+                    
