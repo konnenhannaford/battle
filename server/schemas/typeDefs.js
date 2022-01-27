@@ -10,8 +10,9 @@ const typeDefs = gql`
 
   type artists {
     _id: ID!
-    username: String!v
+    username: String!
     artist name: String
+    artist info: String
     spotify: String
     apple: String
     youtube: String
@@ -20,7 +21,16 @@ const typeDefs = gql`
 
     type winners {
       _id: ID!
-      username: String!v
+      username: String!
+      artistname: String!
+      submission file: String!
+      submissionInfo: String!
+      votes: Int!
+      } 
+
+    type submissions {
+      _id: ID!
+      username: String!
       submission file: String!
       submission: String!
       votes: Int!
