@@ -1,11 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/sampled?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+const dbConnection = (URI) => {
+  try {
+    mongoose.connect(
+      process.env.MONGODB_URI ||
+        "mongodb://localhost:27017/myapp",
+      () => {
+        console.log("Database connected successfully");
+      }
+    );
+  } catch (error) {
+    setTimeout(dbConnection,4000)
+  }
+};
 
-module.exports = mongoose.connection;
+module.exports = dbConnection;

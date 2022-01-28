@@ -7,7 +7,6 @@ import Login from './components/Login';
 import Mediaplayer from './components/Mediaplayer';
 import Signup from './components/Signup';
 import Winners from './components/Winners';
-import Home from './components/Home';
 
 // import mpc from './mpc.png';
 import './App.css';

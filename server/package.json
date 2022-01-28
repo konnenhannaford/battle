@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "apollo-server-express": "^3.6.2",
     "apollo-server-core": "^3.6.2",
+    "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.1",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
