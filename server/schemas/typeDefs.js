@@ -1,13 +1,15 @@
-const { gql } = require('apollo-server-express');
+const { ApolloServer, gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type User {
-    _id: ID!
-    username: String!
-    email: String!
-    password: String!
+
+    type Book {
+      title: String
+      author: String
     }
 
+    type Query {
+      books: [Book]
+    }
 `;
 
 module.exports = typeDefs;
@@ -30,7 +32,12 @@ module.exports = typeDefs;
                       //   * `removeBook`: Accepts a book's `bookId` as a parameter; returns a `User` type.
   
 
-
+                      // type User {
+                      //   _id: ID!
+                      //   username: String!
+                      //   email: String!
+                      //   password: String!
+                      //   }
                       // type artists {
                       //   _id: ID!
                       //   username: String!

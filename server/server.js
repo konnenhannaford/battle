@@ -1,13 +1,11 @@
-        const express = require('express');
-        const path = require('path');
-        const db = require('./config/connection');
-// why is this not being called?
-        const { authMiddleware } = require('./utils/auth');
+const express = require('express');
+const path = require('path');
+const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
 // const routes = require('./routes');
-// or this
-        const { ApolloServer } = require('apollo-server-express');
-        const { typeDefs, resolvers } = require('./schemas');
-// this
+const { ApolloServer } = require('apollo-server-express');
+const { typeDefs, resolvers } = require('./schemas');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -18,7 +16,7 @@ const server = new ApolloServer({
 });
 
 // from docs
-// await server.start();
+await server.start();
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));

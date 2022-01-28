@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+// const habitSchema = require("./Habit");
 
 const userSchema = new Schema(
   {
@@ -17,6 +18,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 10,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
     // savedBooks: [bookSchema],
