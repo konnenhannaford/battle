@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
-const dbConnection = require('./config/connection');
+        const dbConnection = require('./config/connection');
 const { authMiddleware } = require('./utils/auth');
 // const routes = require('./routes');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
-const Router = require('./routes/app');
+// const Router = require('./routes/app');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,28 +27,28 @@ const server = new ApolloServer({
         //     return await User.find().select('-__v -password').populate('savedBooks');
         // },
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
         const serverConfig = async () => {
                 await server.start();
                 server.applyMiddleware({ app });
               };
               serverConfig();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.get("/",(req,res)=>{res.send("Hello")})
+// app.get("/",(req,res)=>{res.send("Hello there")})
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.use("/app",Router)
+// app.use("/app",Router)
 //       // this
-                                // app.get('*', (req, res) => {
-                                // res.sendFile(path.join(__dirname, '../client/build/index.html'));
-                                // });
+                                app.get('*', (req, res) => {
+                                res.sendFile(path.join(__dirname, '../client/build/index.html'));
+                                });
 
-app.get('/guneet/home', (req, res) => {
-        res.sendFile();
-});
+// app.get('/guneet/home', (req, res) => {
+//         res.sendFile();
+// });
 
 dbConnection(URI)
 

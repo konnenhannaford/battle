@@ -1,12 +1,7 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
 const artistSchema = new Schema({
-  userName: 
-    {
-      type: String,
-      required: true,
-    },
   artistName: 
     {
       type: String,
@@ -28,10 +23,13 @@ const artistSchema = new Schema({
   Youtube: {
     type: String,
   },
-  title: {
-    type: String,
-    required: true,
-  },
+ 
+user:{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+}
 });
 
-module.exports = artistSchema;
+const Artists = model('ArtistProfile', artistSchema);
+module.exports = Artists;
+// module.exports = artistSchema;
