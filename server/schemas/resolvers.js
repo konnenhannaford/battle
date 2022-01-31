@@ -39,6 +39,11 @@ const { signToken } = require('../utils/auth');
         user: async (parent, { username }) => {
             return await User.findOne({ username }).select('-__v -password').populate('savedBooks');
         }
+    
+      //   allArtists: () => artists,
+      //   allSongs: () => songs
+
+      // }
     },
 
     Mutation: {
@@ -66,31 +71,16 @@ const { signToken } = require('../utils/auth');
             return { token, user };
         },
 
-        // addArtist: async (parent, { articleId }, context) => {
-        //   const { username } = context.user 
+        addArtist: async (parent, { artistprofileId }, context) => {    
+          const artist = await Artist.findById(artistprofileId);
+              await artist.save();
+              return artist;
     
-        //   const article = await Article.findById(articleId);
-        //     if(article){
-        //       // if article exists user can like only once
-        //       if(article.likes.find(like => like.username === username)){
-        //         // unlike article if already liked
-        //         article.likes = article.likes.filter(like => like.username !== username);
-        //       } else {
-        //         article.likes.push({
-        //           username,
-        //           createdAt: new Date().toISOString()
-        //         })
-        //       }
-        //       await article.save();
-        //       return article;
-    
-        //   } else throw new UserInputError('Article not found');
-        // },
+        },
         
           
           
       
-      // },
     }
 };
 
