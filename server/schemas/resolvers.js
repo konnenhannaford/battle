@@ -66,7 +66,31 @@ const { signToken } = require('../utils/auth');
             return { token, user };
         },
 
+        // addArtist: async (parent, { articleId }, context) => {
+        //   const { username } = context.user 
     
+        //   const article = await Article.findById(articleId);
+        //     if(article){
+        //       // if article exists user can like only once
+        //       if(article.likes.find(like => like.username === username)){
+        //         // unlike article if already liked
+        //         article.likes = article.likes.filter(like => like.username !== username);
+        //       } else {
+        //         article.likes.push({
+        //           username,
+        //           createdAt: new Date().toISOString()
+        //         })
+        //       }
+        //       await article.save();
+        //       return article;
+    
+        //   } else throw new UserInputError('Article not found');
+        // },
+        
+          
+          
+      
+      // },
     }
 };
 
