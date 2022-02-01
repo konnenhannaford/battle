@@ -9,7 +9,7 @@ const songsSchema = new Schema({
     type: String,
   },
   votes: {
-    type: String,
+    type: Number,
   },
   // user:{
   //   type: Schema.Types.ObjectId,

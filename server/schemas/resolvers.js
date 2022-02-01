@@ -1,4 +1,4 @@
-const { User, Artists, Winners, Songs} = require('../models');
+const { Artists, Winners, Songs} = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -41,6 +41,18 @@ Query: {
            return {artist:artist}
    }
 
+},
+
+Votes:async(parent,{id})=>{
+    const song = await Songs.findByIdAndUpdate(id,{$inc: {"votes": 1 }})
+    console.log(song);
+    if(song){
+        const {_id,submission, submissionInfo, votes} = song;
+        return {id:String(_id),submission, submissionInfo, votes};
+    }else{
+        throw new ApolloError("Error Occured");
+    }
+    
 }
     
       //   allArtists: () => artists,
@@ -57,7 +69,7 @@ Query: {
 
     Mutation: {
         login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+            const user = await Artists.findOne({ email });
 
             if (!user) {
                 throw new AuthenticationError('Incorrect login information!');
@@ -70,35 +82,45 @@ Query: {
             }
 
             const token = signToken(user);
-            return { token, user };
+            console.log(user);
+            const {_id,artist_name, artist_info,spotify,apple, youtube, soundcloud } = user;
+
+            return {id:String(_id), artist_name, artist_info,spotify,apple, youtube, soundcloud };
+            // return { token, user };
         },
 
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
-            console.log(user);
-            return {token, user };
-        },
+        // addUser: async (parent, args) => {
+        //     const user = await User.create(args);
+        //     const token = signToken(user);
+        //     console.log(user);
+        //     return {token, user };
+        // },
         addSong:async(parent,args)=>{
-            console.log("Data=>",{...args, email:"abc@gmail.com"})
+            console.log("Data=>",{...args})
             const songs = new Songs({...args})
             console.log("Songs",songs)
               songs.save()
               if(songs){
-                  const {submission, submissionInfo, votes} = songs;
-                  return {submission, submissionInfo, votes};
+                  const {_id,submission, submissionInfo, votes} = songs;
+                  return {id:String(_id),submission, submissionInfo, votes};
+
               }else{
                   throw new ApolloError("Error Occured");
               }
         },
         addArtist:async(parent,args)=>{
             console.log(args)
-            const artist = new Artists({...args, email:"abc@gmail.com"})
-            console.log("Songs",artist)
+            let spotify = args.spotify ? args.spotify : null
+            let apple = args.apple ? args.apple : null
+            let soundcloud = args.soundcloud ? args.soundcloud : null
+            let youtube = args.youtube ? args.youtube : null
+            const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
+                artist_info:args.artist_info,email:args.email, password:args.password})
+             console.log("Songs",artist)
               artist.save()
               if(artist){
-                  const {artist_name, artist_info } = artist;
-                  return {artist_name, artist_info};
+                const {_id,artist_name, artist_info,spotify,apple, youtube, soundcloud } = artist;
+                return {id:String(_id),artist_name, artist_info,spotify,apple, youtube, soundcloud};
               }else{
                   throw new ApolloError("Error Occured");
               }

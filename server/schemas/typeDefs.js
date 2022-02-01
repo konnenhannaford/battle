@@ -4,96 +4,88 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-        type Songs{
-          submission:String!,
-          submissionInfo:String!,
-          votes:Int!        
-        }
+type Songs{
+  id:ID
+  submission:String!,
+  submissionInfo:String!,
+  votes:Int!        
+}
       
-            input SongInput{
-              submission:String!,
-              submissionInfo:String!,
-              votes:Int!        
-            }
-        type ArtistProfile{
-          user: User
-          artist_name: String!
-          artist_info: String!
-          spotify: String
-          apple: String
-          youtube: String
-          soundcloud: String
-        } 
-      
-        type Artist{
-          songs:[Songs]
-          artist:ArtistProfile!
-        }
-            input ArtistProfileInput{
-              user: UserInput!
-              artist_name: String!
-              artist_info: String!
-              spotify: String
-              apple: String
-              youtube: String
-              soundcloud: String
-            }
-        type User {
-          _id: ID
-          username: String!
-          email: String!
-          password: String!
-          role: String!
-        }
-        
-        type allUsers{
-          songs:[Songs]
-          artists:[ArtistProfile]!
-          winners:[Winners]!
-        }  
-      
-        type Auth {
-          token: ID!
-          user: User
-        }
+input SongInput{
+  submission:String!,
+  submissionInfo:String!,
+  votes:Int!        
+}
+type ArtistProfile{
+  id:ID
+  email: String
+  password: String
+  artist_name: String!
+  artist_info: String!
+  spotify: String
+  apple: String
+  youtube: String
+  soundcloud: String
+} 
 
-        type Query {
-          users:allUsers!
-          user(email:String!):Artist
-          vote(id:ID!):Songs
-        }
-            input UserInput {
-              _id: ID
-              username: String!
-              email: String!
-              password: String!
-              role: String!
-            } 
+type Artist{
+  songs:[Songs]
+  artist:ArtistProfile!
+}
+
+input ArtistProfileInput{
+  email: String
+  artist_name: String!
+  artist_info: String!
+  spotify: String
+  apple: String
+  youtube: String
+  soundcloud: String
+}
+        
+type allUsers{
+  songs:[Songs]
+  artists:[ArtistProfile]!
+  winners:[Winners]!
+}  
+
+type Query {
+  users:allUsers!
+  user(email:String!):Artist
+  Votes(id:ID!):Songs
+}
        
-          type Winners{
-          song:Songs
-          artist:ArtistProfile
-        } 
-            input WinnerInput{
-              song:SongInput!
-              artist:ArtistProfileInput!
-            }
+type Winners{
+  song:Songs
+  artist:ArtistProfile
+} 
+        input WinnerInput{
+          song:SongInput!
+          artist:ArtistProfileInput!
+        }
 
   type Mutation {
-    
-    login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, role:String!): Auth 
-    addSong(submission: String!, submissionInfo: String!, votes: Int!): Songs
-    addArtist(artist_name: String!, artist_info: String!, spotify: String, apple: String, Youtube: String, soundcloud: String):ArtistProfile
-    addToWinners(winner:WinnerInput! ): Winners
+  
+  login(email: String!, password: String!): ArtistProfile
+  addSong(email:String!,submission: String!, submissionInfo: String!, votes: Int!): Songs
+  addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, Youtube: String, soundcloud: String):ArtistProfile
+  addToWinners(winner:WinnerInput! ): Winners
 
-    }
-             
+  }
+            
 `
 
 ;
 
 module.exports = typeDefs;
+
+
+// do i still need?
+// type Auth {
+//   token: ID!
+//   user: User
+// }
+
 
 
 // context s global thing to store info so dont add
