@@ -1,29 +1,25 @@
-require('dotenv').config()
-const express = require('express');
-const path = require('path');
-        const dbConnection = require('./config/connection');
-const { authMiddleware } = require('./utils/auth');
+                require('dotenv').config()
+                const express = require('express');
+                const path = require('path');
+                const dbConnection = require('./config/connection');
+                const { authMiddleware } = require('./utils/auth');
 // const routes = require('./routes');
-const { ApolloServer } = require('apollo-server-express');
-const { typeDefs, resolvers } = require('./schemas');
+                const { ApolloServer } = require('apollo-server-express');
+                const { typeDefs, resolvers } = require('./schemas');
 // const Router = require('./routes/app');
-require('dotenv').config()
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-const URI = process.env.MONGODB_URI;
+                const app = express();
+                const PORT = process.env.PORT || 3001;
+                const URI = process.env.MONGODB_URI;
 
-// const server = new ApolloServer({
-//         typeDefs,
-//         resolvers,
-//         context: authMiddleware,
-// });
-const server = new ApolloServer({
-        typeDefs,
-        resolvers,
-        playground: true,
-        introspection: true,
-});
+
+                const server = new ApolloServer({
+                        typeDefs,
+                        resolvers,
+                        playground: true,
+                        introspection: true,
+                        // context: authMiddleware
+                });
 
 // (async function(){
 //         var body = await httpGet('link');
@@ -35,22 +31,22 @@ const server = new ApolloServer({
         //     return await User.find().select('-__v -password').populate('savedBooks');
         // },
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+                app.use(express.urlencoded({ extended: true }));
+                app.use(express.json());
 //         const serverConfig = async () => {
 //                 await server.start();
 //                 server.applyMiddleware({ app });
 //              // app.get("/",(req,res)=>{res.send("Hello there")})
 // // if we're in production, serve client/build as static assets
-// if (process.env.NODE_ENV === 'production') {
-// app.use(express.static(path.join(__dirname, '../client/build')));
-// }
+                if (process.env.NODE_ENV === 'production') {
+                app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
 // // app.use("/app",Router)
 // //       // this
-//                                 app.get('*', (req, res) => {
-//                                 res.sendFile(path.join(__dirname, '../client/build/index.html'));
-//                                 });
+                app.get('*', (req, res) => {
+                res.sendFile(path.join(__dirname, '../client/build/index.html'));
+                });
 
 // // app.get('/guneet/home', (req, res) => {
 // //         res.sendFile();
