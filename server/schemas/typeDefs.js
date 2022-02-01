@@ -3,87 +3,91 @@ const { gql } = require('apollo-server-express');
 
 
 const typeDefs = gql`
-    type User {
-        _id: ID
-        username: String!
-        email: String!
-        password: String!
-        role: String!
-    }
-    type ArtistProfile{
-    user: User
-   artist_name: String!
-   artist_info: String!
-   spotify: String
-   apple: String
-   youtube: String
-   soundcloud: String
-  } 
-    type Artist{
-      songs:[Songs]
-      artist:ArtistProfile!
-    }
-    type allUsers{
-        songs:[Songs]
-        artists:[ArtistProfile]!
-        winners:[Winners]!
-    }  
-    type Query {
-      users:allUsers!
-      user(email:String!):Artist
-      vote(id:ID!):Songs
-    }
 
-    type Auth {
-      token: ID!
-      user: User
-  }
-  type Songs{
-     submission:String!,
-     submissionInfo:String!,
-     votes:Int!        
-  }
-  
- 
-type Winners{
-   song:Songs
-   artist:ArtistProfile
-} 
-input SongInput{
-     submission:String!,
-     submissionInfo:String!,
-     votes:Int!        
-  }
-  
-  input ArtistProfileInput{
-    user: UserInput!
-   artist_name: String!
-   artist_info: String!
-   spotify: String
-   apple: String
-   youtube: String
-   soundcloud: String
-  }
-  input UserInput {
-        _id: ID
-        username: String!
-        email: String!
-        password: String!
-        role: String!
-    } 
-input WinnerInput{
-   song:SongInput!
-  artist:ArtistProfileInput!
-}
-    type Mutation {
+        type Songs{
+          submission:String!,
+          submissionInfo:String!,
+          votes:Int!        
+        }
       
-        login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!, role:String!): Auth 
-        addSong(submission: String!, submissionInfo: String!, votes: Int!): Songs
-        addArtist(artist_name: String!, artist_info: String!, spotify: String, apple: String, Youtube: String, soundcloud: String):ArtistProfile
-        addToWinners(winner:WinnerInput! ): Winners
+            input SongInput{
+              submission:String!,
+              submissionInfo:String!,
+              votes:Int!        
+            }
+        type ArtistProfile{
+          user: User
+          artist_name: String!
+          artist_info: String!
+          spotify: String
+          apple: String
+          youtube: String
+          soundcloud: String
+        } 
+      
+        type Artist{
+          songs:[Songs]
+          artist:ArtistProfile!
+        }
+            input ArtistProfileInput{
+              user: UserInput!
+              artist_name: String!
+              artist_info: String!
+              spotify: String
+              apple: String
+              youtube: String
+              soundcloud: String
+            }
+        type User {
+          _id: ID
+          username: String!
+          email: String!
+          password: String!
+          role: String!
+        }
+        
+        type allUsers{
+          songs:[Songs]
+          artists:[ArtistProfile]!
+          winners:[Winners]!
+        }  
+      
+        type Auth {
+          token: ID!
+          user: User
+        }
 
-      }
+        type Query {
+          users:allUsers!
+          user(email:String!):Artist
+          vote(id:ID!):Songs
+        }
+            input UserInput {
+              _id: ID
+              username: String!
+              email: String!
+              password: String!
+              role: String!
+            } 
+       
+          type Winners{
+          song:Songs
+          artist:ArtistProfile
+        } 
+            input WinnerInput{
+              song:SongInput!
+              artist:ArtistProfileInput!
+            }
+
+  type Mutation {
+    
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, role:String!): Auth 
+    addSong(submission: String!, submissionInfo: String!, votes: Int!): Songs
+    addArtist(artist_name: String!, artist_info: String!, spotify: String, apple: String, Youtube: String, soundcloud: String):ArtistProfile
+    addToWinners(winner:WinnerInput! ): Winners
+
+    }
              
 `
 

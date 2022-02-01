@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Artists, Winners, Songs} = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -111,3 +111,5 @@ Query: {
 };
 
 module.exports = resolvers;
+
+
