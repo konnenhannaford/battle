@@ -1,9 +1,41 @@
 .App {
   text-align: center;
+  background-color: #fcbc73;
+  display: block;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+  font-family: 'Raleway', sans-serif;
+  text-align: center; 
+  animation: fadeIn 10s;
+  -webkit-animation: fadeIn 10s;
+  -moz-animation: fadeIn 10s;
+  -o-animation: fadeIn 10s;
+  -ms-animation: fadeIn 10s;
+
+
 }
+                  /* @media screen and (max-width: 768px) {
+                    .App {
+                    width: 300px;
+                    text-align: center;
+                    }
+                    h1 {
+                      font-size: 50px;
+                    }
+                  .navbar{
+                    size: 10px;
+                  }  
+                } */
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -14,13 +46,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: linen;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(100px + 2vmin);
   color: white;
 }
 
@@ -36,3 +68,244 @@
     transform: rotate(360deg);
   }
 }
+
+div { 
+  /* background-image: url("images/white.jpeg"); */
+  background-size:cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; 
+  height: 100%; 
+}
+
+/* ------------------------------------- */
+
+                    header {
+                      padding: 1rem;
+                    }
+
+                    #navbarmenu {
+                      display:table; 
+                      margin:0 auto; 
+                      text-align:center; 
+                    }
+
+                    #navbarmenu ul {
+                    list-style:none;
+                    display:inline-block; /* IE6/7 has layout trip-switch */
+                    }
+
+                    #navbarmenu li {
+                    display:inline;
+                    }
+
+                    #navbarmenu a {
+                    text-decoration:none; 
+                    padding:0 1rem; /* variable width */
+                    font-family: 'Raleway', sans-serif;
+                    color: rgb(185, 200, 228);
+                    }
+
+                    figure {
+                    width:100%;
+                    text-align:center;
+                    }
+                      
+                    .divider{
+                    color: rgb(185, 200, 228);
+                    }
+
+                    @media only screen and (max-width: 600px) {
+
+                    nav {
+                      display: flex;
+                      flex-direction: row;
+                      font-family: 'Raleway', sans-serif;
+                      color: rgb(185, 200, 228);
+                      display:inline;
+                      list-style:none;
+                      display:inline-block; /* IE6/7 has layout trip-switch */
+                      text-align:center;
+                    }
+.button {
+
+  display: inline-block;
+  outline: 0;
+  border:0;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  color: #000;
+  background: #fff;
+  line-height: 30px;
+  border-radius: 40px;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(246, 84, 174) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+  transition: all 0.2s;
+  /* :hover{
+      box-shadow: rgb(246, 84, 174) -2px -2px 0px 2px, rgb(255, 198, 0) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+      transform: scale(1.01); */
+  }
+  
+
+
+                    header {
+                      padding: 0;
+                      text-align: center;   
+                    }
+                    }
+/* ------------------------------------- */
+
+.home {
+  background-color: transparent;
+  border-radius: 305px;
+  display: block;
+  height: 100%;
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+  font-family: 'Raleway', sans-serif;
+  text-align: center; 
+  animation: fadeIn 10s;
+  -webkit-animation: fadeIn 10s;
+  -moz-animation: fadeIn 10s;
+  -o-animation: fadeIn 10s;
+  -ms-animation: fadeIn 10s;
+}
+
+.slideshow-container {
+  max-width: 50%;
+  position: relative;
+  margin: auto;
+
+}
+
+/* @media screen and (max-width: 965px) {
+  .portfoliolinks {
+  width: 50%;
+  text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfoliolinks {
+  width: 30%;
+  text-align: center;
+  }
+} */
+
+.fas fa-laptop {
+  width: 100px;
+  height: 100px;
+
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  color: #ee8982;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 12px;
+  bottom: 8px;
+  width: 100%;
+}
+
+.profpic {
+  width: 100px;
+  height: 100px;
+}
+.site-logo {
+  border-radius: 180px;
+  width: 100px;
+  height: 100px;
+}
+
+.main-header {
+  text-align: center;    
+  font-family: 'Poiret One', cursive;
+}
+
+.navbar {
+  font-family: 'Raleway', sans-serif;
+  background-color: transparent;
+  align-content: center;
+  
+}
+
+.title {
+  color: #ee8982;
+}
+
+.subtitle {
+  color: #fbd977;
+}
+
+.navbar-item {
+  color: #76a8fc;
+  text-align: center;
+  display: inline-flex;
+}
+
+
+.footer {
+  padding: 10px;
+  background-color: #ee8982a9;
+  color: #76a8fc;
+  font-family: 'Raleway', sans-serif;
+  margin-top: auto;
+}
+
+
+h1 {
+  font-size: 100px;
+  color: #ee8982;
+}
+
+p {
+  color: #fbd977;
+  font-size: 100px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 900;
+}
+
+
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #76a8fc;
+
+}
+
+.fa:hover {
+  color: #fbd977;
+}
+
+
+@media screen and (max-width: 768px) {
+  .home {
+  width: 300px;
+  text-align: center;
+  }
+  h1 {
+    font-size: 50px;
+  }
+.navbar{
+  size: 10px;
+}  }
