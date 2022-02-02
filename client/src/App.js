@@ -15,10 +15,13 @@ import Home from './pages/Home';
 import Artists from './pages/Artists';
 import Winners from './pages/Winners';
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 // what set conetxt does?
 // https://www.apollographql.com/docs/react/api/link/apollo-link-context/
 import Navbar from './components/Navbar';
+// import Samples from './components/Samples';
+import Footer from './components/Footer';
+// import Artistprofile from './components/Artistprofile';
 
 
 // import logo from './vynil.png';
@@ -66,8 +69,9 @@ function App() {
             <Route exact path='/winners' component={Winners} />
             <Route exact path='/artists' component={Artists} />
             <Route exact path='/signup' component={Signup} />
-            <Route exact path='/login' component={Login} />
+            {/* <Route exact path='/login' component={Login} /> */}
           </Routes>
+          <Footer />
       </Router>
 </ApolloProvider>
 </ChakraProvider>
@@ -93,7 +97,6 @@ function App() {
 //       <img src={dj} className="dj-logo" alt="dj" />
 //     </div>
 //   ); */}
-
 
 
 
