@@ -5,6 +5,10 @@ kill -9 PID
         i need user proifle to show on dashboard/profile page to be updated and artistts page 
         i need to set up auth 
         i need to know why info wont show
+        need to update profile and delete songs
+
+
+get ui working - upadte fields / 
 
 // use this an dauth.js in config
 // use jwt review
