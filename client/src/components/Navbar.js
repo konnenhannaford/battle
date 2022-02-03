@@ -1,9 +1,11 @@
 import React from "react";
 import Auth from "../utils/auth";
 import { Link as RouterLink } from "react-router-dom";
-import { Tabs, TabList, Tab, Image, Spacer, Box, Heading } from "@chakra-ui/react";
+import {
+ Tabs, TabList, Tab, Image, Box, Heading } from "@chakra-ui/react";
 import dj from './vynil.png';
 import '../App.css';
+
 function Nav() {
   if (Auth.loggedIn()) {
     return (
@@ -14,19 +16,20 @@ function Nav() {
           p={4}
           bgColor="pink"
         >
-          <Image 
-            px={1}
+                   <Image className="app-logo"
+            // px={4}
+            height = {40}
             src={dj}
             alt="fb"
           ></Image>
-          <Heading color="#1a535c" m={4} p={4}>
-            sampled
+                    <Heading color="#fcbc73" m={5} p={2}>
+            sampled..
           </Heading>
-          <Spacer />
-          <Tabs color="red" variant="unstyled" pt={8}>
-          <TabList>
+
+          <Tabs color="#fcbc73" variant="unstyled" pt={8}>
+              <TabList>
                 <Tab>
-                  <RouterLink to="/">Hdddome</RouterLink>
+                  <RouterLink to="/">Home</RouterLink>
                 </Tab>
                 <Tab>
                   <RouterLink to="/artists">Artists</RouterLink>
@@ -34,8 +37,8 @@ function Nav() {
                 <Tab>
                   <RouterLink to="/winners">Winners</RouterLink>
                 </Tab>
-              <Tab>
-                <RouterLink to="/dashboard">Profile</RouterLink>
+                <Tab>
+                <RouterLink to="/artistprofile">Artist Profile</RouterLink>
               </Tab>
               <Tab>
                 <a href="/" onClick={() => Auth.logout()}>
@@ -50,7 +53,7 @@ function Nav() {
   } else {
     return (
       <header>
-        <Box mt={0} py={8} bgColor="#B57295"
+        <Box mt={0} py={8} bgColor="transparent"
           // display="flex" mb={4}
           align="center"
           p={4}
@@ -65,7 +68,7 @@ function Nav() {
             sampled..
           </Heading>
 
-          <Spacer />
+          {/* <Spacer /> */}
           <Box justify="center">
             <Tabs color="#fcbc73" variant="unstyled" pt={8}>
               <TabList>
@@ -79,8 +82,15 @@ function Nav() {
                   <RouterLink to="/winners">Winners</RouterLink>
                 </Tab>
                 <Tab>
-                  <RouterLink to="/login/signup">Login/Sign Up</RouterLink>
+                  <RouterLink to="/signup">Sign Up</RouterLink>
                 </Tab>
+                <Tab>
+                  <RouterLink to="/login">Login</RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to="/artistprofile">Artist Profile</RouterLink>
+              </Tab>
+
               </TabList>
             </Tabs>
           </Box>

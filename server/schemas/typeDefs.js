@@ -26,11 +26,20 @@ type ArtistProfile{
   apple: String
   youtube: String
   soundcloud: String
+  songs:[Songs]
+
 } 
 
 type Artist{
-  songs:[Songs]
-  artist:ArtistProfile!
+id: ID
+email: String
+artist_name: String!
+artist_info: String!
+spotify: String
+apple: String
+youtube: String
+soundcloud: String
+
 }
 
 input ArtistProfileInput{
@@ -55,6 +64,11 @@ type Query {
   Votes(id:ID!):Songs
 }
        
+  type Auth {
+    token: ID!
+    artist: Artist
+}
+
 type Winners{
   song:Songs
   artist:ArtistProfile
@@ -66,13 +80,15 @@ type Winners{
 
   type Mutation {
   
-  login(email: String!, password: String!): ArtistProfile
+  login(email: String!, password: String!): Auth
   addSong(email:String!,submission: String!, submissionInfo: String!, votes: Int!): Songs
-  addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, Youtube: String, soundcloud: String):ArtistProfile
+  addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, youtube: String, soundcloud: String):Artist
   addToWinners(winner:WinnerInput! ): Winners
 
   }
-            
+
+
+
 `
 
 ;

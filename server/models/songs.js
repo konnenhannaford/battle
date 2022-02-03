@@ -11,13 +11,10 @@ const songsSchema = new Schema({
   votes: {
     type: Number,
   },
-  // user:{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User'
-  // }
-  email:{
-    type:String
-}
+  artist:{
+    type: Schema.Types.ObjectId,
+    ref: 'Artist'
+  }
 });
 
 const Songs = model('Songs', songsSchema);

@@ -1,53 +1,43 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Image, Box, Heading, Text, Center } from "@chakra-ui/react";
+import React from 'react';
+import {
+  Flex,
+  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  Button
+} from '@chakra-ui/react';
+
+
+  
 
 const Login = () => {
-  return (
-    <div>
-      <RouterLink to="/Winners">
-        <Box>
-          <Image
-            src="../components/vynil.png"
-            
-          ></Image>
-          <Center>
-            <Heading color="#1a535c" m={4} p={4}>
-            artist
-            </Heading>
-          </Center>
-          <Text px={8} pb={4}>
-            test
-          </Text>
+    return (
+      <Flex width="full" align="center" justifyContent="center">
+        <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
+          <Box textAlign="center">
+            <Heading>Login</Heading>
+          </Box>
+          <Box my={4} textAlign="left">
+            <form>
+              <FormControl>
+                <FormLabel>Email</FormLabel>
+                <Input type="email" placeholder="test@test.com" />
+              </FormControl>
+              <FormControl mt={6}>
+                <FormLabel>Password</FormLabel>
+                <Input type="password" placeholder="*******" />
+              </FormControl>
+              <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
+                Sign In
+                </Button>
+            </form>
+          </Box>
         </Box>
-      </RouterLink>
-    </div>
-  );
-};
+      </Flex>
+    );
+  }
+  
 
-export default Login;
-
-// INPUTS
-      // import { Input } from '@chakra-ui/react'
-      // <Input placeholder='extra small size' size='xs' />
-
-// PASSWORD
-      // function PasswordInput() {
-      //   const [show, setShow] = React.useState(false)
-      //   const handleClick = () => setShow(!show)
-      
-      //   return (
-      //     <InputGroup size='md'>
-      //       <Input
-      //         pr='4.5rem'
-      //         type={show ? 'text' : 'password'}
-      //         placeholder='Enter password'
-      //       />
-      //       <InputRightElement width='4.5rem'>
-      //         <Button h='1.75rem' size='sm' onClick={handleClick}>
-      //           {show ? 'Hide' : 'Show'}
-      //         </Button>
-      //       </InputRightElement>
-      //     </InputGroup>
-      //   )
-      // }
+  export default Login;

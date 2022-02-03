@@ -50,3 +50,6 @@ dbConnection.once('open', () => console.log('Connected to DB!'))
 };
 
 module.exports = dbConnection;
+
+
+// http://localhost:3001/graphql

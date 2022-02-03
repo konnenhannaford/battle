@@ -1,4 +1,4 @@
-const { Artists, Winners, Songs} = require('../models');
+const { Artist, Winners, Songs} = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -110,12 +110,11 @@ Votes:async(parent,{id})=>{
         },
         addArtist:async(parent,args)=>{
             console.log(args)
-            let spotify = args.spotify ? args.spotify : null
-            let apple = args.apple ? args.apple : null
-            let soundcloud = args.soundcloud ? args.soundcloud : null
-            let youtube = args.youtube ? args.youtube : null
-            const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
-                artist_info:args.artist_info,email:args.email, password:args.password})
+            // let spotify = args.spotify ? args.spotify : null
+            // let apple = args.apple ? args.apple : null
+            // let soundcloud = args.soundcloud ? args.soundcloud : null
+            // let youtube = args.youtube ? args.youtube : null
+            const artist = new Artist(args)
              console.log("Songs",artist)
               artist.save()
               if(artist){

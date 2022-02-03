@@ -35,10 +35,8 @@ password: {
   },
   youtube: {
     type: String,
-  },
-  email:{
-    type:String
   }
+
 });
 
 artistSchema.pre('save', async function (next) {
@@ -54,6 +52,6 @@ artistSchema.pre('save', async function (next) {
 artistSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-const Artists = model('ArtistProfile', artistSchema);
-module.exports = Artists;
+const Artist = model('Artist', artistSchema);
+module.exports = Artist;
 // module.exports = artistSchema;
