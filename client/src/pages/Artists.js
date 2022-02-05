@@ -1,11 +1,12 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { SimpleGrid, Box, Heading, Center } from "@chakra-ui/react";
+import { Link} from "react-router-dom";
+import { Icon, SimpleGrid, Box, Heading, Center } from "@chakra-ui/react";
+import { RiSpotifyLine, RiSoundcloudLine, RiYoutubeLine, RiAppleLine, RiInformationLine} from 'react-icons/ri'
 
 const Artists = () => {
   return (
     <div>
-      <RouterLink to="/Artists">
+      <Link to="/Artists">
         <Box>
           <Center>
             <Heading color="#1a535c" m={4} p={4}>
@@ -23,105 +24,64 @@ const Artists = () => {
             >
               <Box boxShadow='xl' p='6' rounded='md' bg='white'>
               <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
+              </Box>
+              
+              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
+              <h1> Artist 1 </h1>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
+              </Box>
+              
+              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
+              <h1> Artist 1 </h1>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
+              </Box>
+              
+              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
+              <h1> Artist 1 </h1>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
               </Box>
               <Box boxShadow='xl' p='6' rounded='md' bg='white'>
               <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
               </Box>
               <Box boxShadow='xl' p='6' rounded='md' bg='white'>
               <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist Name: </h3>
+                            <h3>  <Icon as={RiInformationLine} />* Artist info: </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> * Spotify: </h3>
+                            <h3> <Icon as={RiYoutubeLine} />* Youtube: </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />* Soundcloud: </h3>
+                            <h3> <Icon as={RiAppleLine} />* Apple: </h3>
               </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-
-              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3> * Artist info: </h3>
-                            <h3> * Spotify: </h3>
-                            <h3> * Youtube: </h3>
-                            <h3> * Soundcloud: </h3>
-                            <h3> * Apple: </h3>
-              </Box>
-
             </SimpleGrid>
         </Box>
-      </RouterLink>
+      </Link>
     </div>
   );
 };

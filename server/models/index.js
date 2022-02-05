@@ -1,5 +1,5 @@
 const User = require('./User');
-const Artist = require('./Artist');
+const Artists = require('./Artists');
 const Winners = require('./Winners')
 const Songs = require('./songs');
-module.exports = { User, Artist, Winners, Songs };
+module.exports = { User, Artists, Winners, Songs };

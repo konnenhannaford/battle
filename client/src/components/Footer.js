@@ -1,28 +1,46 @@
 import React from "react";
 // import { Link as RouterLink } from "react-router-dom";
-import {
-  Image,
+import { RiInstagramLine, RiFacebookCircleLine } from 'react-icons/ri'
+  import {
+  // Image,
   Box,
 //   Heading,
 //   Text,
 //   Wrap,
 //   Flex,
   Center,
+  // Spacer,
+
+  Icon
 //   Link,
 } from "@chakra-ui/react";
-import dj from './vynil.png';
+// import dj from './vynil.png';
 
 function Footer() {
   return (
-    <Box mt={8} py={8} bgColor="black">
+    <Box mt={0} py={0} bgColor="black">
       <Center>
-        <Box display="flex" mb={4}>
-          <Image
-            height = {10}
+        <Box display="flex" mb={0}>
+
+      <Icon as={RiFacebookCircleLine}
+                     color='gray.50'
+                     mb={10}
+                     mt={10} />
+                     
+
+    {/* <Image
+            height = {100}
             src={dj}
             alt="fb"
-          ></Image>
-               {/* <img src={dj} className="dj-logo" alt="dj" /> */}
+          ></Image> */}
+          
+
+
+      <Icon as={RiInstagramLine} 
+                     color='gray.50'
+                     mb={10}
+                     mt={10} />
+
         </Box>
       </Center>
     </Box>

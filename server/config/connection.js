@@ -36,7 +36,7 @@ require("dotenv").config();
 const dbConnection = (URI) => {
   try {
     const mongoose = require('mongoose')
-    mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+    mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/sampledbattles?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

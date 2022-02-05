@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import { ApolloProvider } from '@apollo/react-hooks';
     import {
       ApolloClient,
@@ -41,7 +41,8 @@ import Artistprofile from './pages/Artistprofile';
 
               const authLink = setContext((_, { headers }) => {
                 // get the authentication token from local storage if it exists
-                const token = localStorage.getItem('token');
+                const token = localStorage.getItem('id_token');
+                                // should this be id_token?
                 // return the headers to the context so httpLink can read them
                 return {
                   headers: {
@@ -64,14 +65,14 @@ function App() {
       <ApolloProvider client={client}>
       <Router>
           <Navbar />
-          <Routes>
-            <Route  path='/' element={<Home />} />
-            <Route  path='/winners' element={<Winners />} />
-            <Route  path='/artists' element={<Artists />} />
-            <Route  path='/signup' element={<Signup />} />
-            <Route  path='/artistprofile' element={<Artistprofile />} />
-            <Route  path='/login' element={<Login />} />
-          </Routes>
+          <Switch>
+            <Route exact path="/"><Home /></Route>
+            <Route exact path="/winners"><Winners /></Route>
+            <Route exact path="/artists"><Artists /></Route>
+            <Route exact path="/signup"><Signup /></Route>
+            <Route exact path="/artistprofile"><Artistprofile /></Route>
+            <Route exact path="/login"><Login /></Route>
+          </Switch>
           <Footer />
       </Router>
 </ApolloProvider>

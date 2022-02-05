@@ -6,6 +6,7 @@ kill -9 PID
         i need to set up auth 
         i need to know why info wont show
         need to update profile and delete songs
+                                // should this be id_token in app js headers line 45?
 
 
 get ui working - upadte fields / 

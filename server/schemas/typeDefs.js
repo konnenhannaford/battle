@@ -4,88 +4,81 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-type Songs{
-  id:ID
-  submission:String!,
-  submissionInfo:String!,
-  votes:Int!        
-}
+
+                    type Songs{
+                      id:ID
+                      submission:String!,
+                      submissionInfo:String!,
+                      votes:Int!        
+                    }
       
-input SongInput{
-  submission:String!,
-  submissionInfo:String!,
-  votes:Int!        
-}
-type ArtistProfile{
-  id:ID
-  email: String
-  password: String
-  artist_name: String!
-  artist_info: String!
-  spotify: String
-  apple: String
-  youtube: String
-  soundcloud: String
-  songs:[Songs]
+                    input SongInput{
+                        submission:String!,
+                        submissionInfo:String!,
+                        votes:Int!        
+                      }
+                  type ArtistProfile{
+                      id:ID
+                      email: String
+                      password: String
+                    artist_name: String!
+                    artist_info: String!
+                    spotify: String
+                    apple: String
+                    youtube: String
+                    soundcloud: String
+                    songs:[Songs]
 
-} 
+                  } 
 
-type Artist{
-id: ID
-email: String
-artist_name: String!
-artist_info: String!
-spotify: String
-apple: String
-youtube: String
-soundcloud: String
+                  type Artist{
+                  songs: [Songs]
+                  artist:ArtistProfile!
 
-}
+                  }
 
-input ArtistProfileInput{
-  email: String
-  artist_name: String!
-  artist_info: String!
-  spotify: String
-  apple: String
-  youtube: String
-  soundcloud: String
-}
-        
-type allUsers{
-  songs:[Songs]
-  artists:[ArtistProfile]!
-  winners:[Winners]!
-}  
+                input ArtistProfileInput{
+                  email: String
+                  artist_name: String!
+                  artist_info: String!
+                  spotify: String
+                  apple: String
+                  youtube: String
+                  soundcloud: String
+                }
+                        
+                              type allUsers{
+                                songs:[Songs]
+                                artists:[ArtistProfile]!
+                                winners:[Winners]!
+                              }  
 
-type Query {
-  users:allUsers!
-  user(email:String!):Artist
-  Votes(id:ID!):Songs
-}
+                            type Query {
+                              users:allUsers
+                              user(email:String!):Artist
+                              Votes(id:ID!):Songs
+                            }
        
-  type Auth {
-    token: ID!
-    artist: Artist
-}
 
-type Winners{
-  song:Songs
-  artist:ArtistProfile
-} 
-        input WinnerInput{
-          song:SongInput!
-          artist:ArtistProfileInput!
-        }
+
+                                  type Winners{
+                                    song:Songs
+                                    artist:ArtistProfile
+                                  } 
+                              input WinnerInput{
+                            song:SongInput!
+                            artist:ArtistProfileInput!
+                          }
 
   type Mutation {
   
-  login(email: String!, password: String!): Auth
+  login(email: String!, password: String!): ArtistProfile
   addSong(email:String!,submission: String!, submissionInfo: String!, votes: Int!): Songs
-  addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, youtube: String, soundcloud: String):Artist
+  addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, youtube: String, soundcloud: String):ArtistProfile
   addToWinners(winner:WinnerInput! ): Winners
 
   }
+
 
 
 
@@ -96,13 +89,21 @@ type Winners{
 module.exports = typeDefs;
 
 
-// do i still need?
-// type Auth {
-//   token: ID!
-//   user: User
-// }
+                  // do i still need?
+                  // type Auth {
+                  //   token: ID!
+                  //   user: User
+                  // }
+                  //
 
+                          // type Auth {
+                          //   token: ID!
+                          //   artist: Artist
+                          // }
 
+                  // need to add
+                  // deleteSong(email:String!,submission: String!, submissionInfo: String!): Songs
+                  // and do one for updateuser
 
 // context s global thing to store info so dont add
 // parent has to go in all
@@ -126,55 +127,84 @@ module.exports = typeDefs;
   // vote on posts
 
 
-                        //       type User {
-                        //         _id: ID
-                        //         username: String!
-                        //         email: String!
-                        //         password: String!
-                        //         role: String!
-                        //     }   
-                        
-                          
-                        //     type artistprofile {
-                        //       userid: ID! - dont need as username would be supset of user type above?
-                        //       artistName: String!
-                        //       artistInfo: String!
-                        //       spotify: String
-                        //       apple: String
-                        //       youtube: String
-                        //       soundcloud: String
-                        //       } 
-                        
-                        //     type Auth {
-                        //         token: ID!
-                        //         user: User
-                        //     }
-                        
-                        //     type Songs {
-                        //       user: ID!
-                        //       submission: String!
-                        //       submissionInfo: String!
-                        //       votes: Int!
-                        //     }
-                        
-                        //     type Winners {
-                        //       user: ID!
-                        //       song: ID!
-                        //     }
-                        
-                        //     type Query {
-                        //         me: User
-                        //         users: [User]
-                        //         user(username: String!): User
-                        //     }
-                        
-                        
-                        //     type Mutation {
-                              
-                        //         login(email: String!, password: String!): Auth
-                        //         addUser(username: String!, email: String!, password: String!): Auth 
-                        
-                        //     }
-                                    
-                          
-                        // `
+
+  // type Songs{
+  //   id:ID
+  //   submission:String!,
+  //   submissionInfo:String!,
+  //   votes:Int!        
+  // }
+        
+  // input SongInput{
+  //   submission:String!,
+  //   submissionInfo:String!,
+  //   votes:Int!        
+  // }
+  // type ArtistProfile{
+  //     id:ID
+  //     email: String
+  //     password: String
+  //   artist_name: String!
+  //   artist_info: String!
+  //   spotify: String
+  //   apple: String
+  //   youtube: String
+  //   soundcloud: String
+  //   songs:[Songs]
+  
+  // } 
+  
+  // type Artist{
+  // songs: [Songs]
+  // artist: [ArtistProfile]!
+  
+  // }
+  
+  // input ArtistProfileInput{
+  //   email: String
+  //   artist_name: String!
+  //   artist_info: String!
+  //   spotify: String
+  //   apple: String
+  //   youtube: String
+  //   soundcloud: String
+  // }
+          
+  // type allUsers{
+  //   songs:[Songs]
+  //   artists:[ArtistProfile]!
+  //   winners:[Winners]!
+  // }  
+  
+  // type Query {
+  //   users:allUsers
+  //   user(email:String!):Artist
+  //   Votes(id:ID!):Songs
+  // }
+         
+  //   type Auth {
+  //     token: ID!
+  //     artist: Artist
+  // }
+  
+  // type Winners{
+  //   song:Songs
+  //   artist:ArtistProfile
+  // } 
+  //         input WinnerInput{
+  //           song:SongInput!
+  //           artist:ArtistProfileInput!
+  //         }
+  
+  //   type Mutation {
+    
+  //   login(email: String!, password: String!): Auth
+  //   addSong(email:String!,submission: String!, submissionInfo: String!, votes: Int!): Songs
+  //   deleteSong(email:String!,submission: String!, submissionInfo: String!): Songs
+  //   addArtist(email:String!,password:String!,artist_name: String!, artist_info: String!, spotify: String, apple: String, youtube: String, soundcloud: String):Artist
+  //   addToWinners(winner:WinnerInput! ): Winners
+  
+  //   }
+  
+  
+  

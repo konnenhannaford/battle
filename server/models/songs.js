@@ -11,9 +11,12 @@ const songsSchema = new Schema({
   votes: {
     type: Number,
   },
-  artist:{
-    type: Schema.Types.ObjectId,
-    ref: 'Artist'
+  // artist:{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Artist'
+  // }
+  email:{
+    type:String
   }
 });
 

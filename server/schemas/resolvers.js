@@ -1,50 +1,33 @@
-const { Artist, Winners, Songs} = require('../models');
+const { Artists, Winners, Songs} = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
-// const resolvers = {
-
-    
-//         Query: {
-//           books: () => "hello world",
-//         },
-
-// const resolvers = {
-//   Query: {
-//     User: () => User,
-//   },
-
 
   const resolvers = {
-    // Query: {
-    //   books: () => books,
-    // },
 
-
-// };
 Query: {
      
     users:async(parent,args)=>{
         const allArtists = await Artists.find();
         const allSongs = await Songs.find();
-        return {artists:allArtists, songs:allSongs}
+        return {artist:allArtists, songs:allSongs}
     },
     user:async(parent, {email})=>{
           const artist = await Artists.findOne({email:email});
-          const allSongs = await Songs.findOne({email:email});
+          const allSongs = await Songs.find({email:email});
           console.log(artist)
           console.log(allSongs);
           
          if(allSongs && artist){
-           return {artist:artist, songs:allSongs}
-       }else if(artist){
-           return {artist:artist}
+           return {artist, songs:allSongs}
+       }else if(artist && !allSongs){
+           return {artist:artist, songs:[]}
    }
 
 },
 
 Votes:async(parent,{id})=>{
-    const song = await Songs.findByIdAndUpdate(id,{$inc: {"votes": 1 }})
+    const song = await Songs.findByIdAndUpdate(id)
     console.log(song);
     if(song){
         const {_id,submission, submissionInfo, votes} = song;
@@ -115,7 +98,11 @@ Votes:async(parent,{id})=>{
             // let soundcloud = args.soundcloud ? args.soundcloud : null
             // let youtube = args.youtube ? args.youtube : null
             const artist = new Artist(args)
-             console.log("Songs",artist)
+            
+            //  or
+            //  const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
+            //     artist_info:args.artist_info,email:args.email, password:args.password})
+            console.log("Songs",artist)
               artist.save()
               if(artist){
                 const {_id,artist_name, artist_info,spotify,apple, youtube, soundcloud } = artist;
