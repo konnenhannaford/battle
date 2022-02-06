@@ -168,6 +168,9 @@ import Nav from "../components/Navbar";
 
 
 const Signup = () => {
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
+
   // set initial form state
   const [userFormData, setUserFormData] = useState({ artistName: '', email: '', password: '',artistInfo:'',apple:"",soundcloud:"",youtube:"",spotify:"" });
   const history = useHistory ()
@@ -228,8 +231,11 @@ const Signup = () => {
     }
   },[artistInfo])
         return (
+          <div>
+          <Nav/>
+
+
       <Flex width="full" align="center" justifyContent="center">
-        <Nav/>    
 
         <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
@@ -252,11 +258,13 @@ const Signup = () => {
                 
                         <FormLabel htmlFor='password'>password</FormLabel>
                 <Input 
-                type="text" placeholder="test@test.com"             
+                // type="text" placeholder="test@test.com"             
                 name='password'
                 onChange={handleInputChange}
                 value={userFormData.password}
                 required
+                type={show ? 'text' : 'password'}
+
               /> 
               <FormLabel>* Artist Name:</FormLabel>
                 <Input 
@@ -313,6 +321,7 @@ const Signup = () => {
           </Box>
         </Box>
       </Flex>
+      </div>
     );
   }
     

@@ -15,9 +15,13 @@ const songsSchema = new Schema({
   //   type: Schema.Types.ObjectId,
   //   ref: 'Artist'
   // }
-  email:{
-    type:String
-  }
+//   email:{
+//     type:String
+//   }
+// });
+artistId:{
+  type:String
+}
 });
 
 const Songs = model('Songs', songsSchema);

@@ -6,7 +6,10 @@ const { signToken } = require('../utils/auth');
   const resolvers = {
 
 Query: {
-     
+    songs:async(_,{artistId})=>{
+        const allSongs = await Songs.find({artistId})
+        return allSongs
+       },
     users:async(parent,args)=>{
         const allArtists = await Artists.find();
         const allSongs = await Songs.find();
@@ -25,7 +28,14 @@ Query: {
    }
 
 },
+// user: async (parent, { id }) => {
+//     console.log(id)
+//       const artist = await Artists.findOne({ _id: id });
 
+//       if (artist) {
+//         return { artist };
+//       } 
+//     },
 Votes:async(parent,{id})=>{
     const song = await Songs.findByIdAndUpdate(id)
     console.log(song);
@@ -35,7 +45,17 @@ Votes:async(parent,{id})=>{
     }else{
         throw new ApolloError("Error Occured");
     }
-    
+},
+    deleteSong:async (_,{id})=>{
+        console.log(id)
+        const song = await Songs.findByIdAndDelete(id);
+       console.log(song)
+       if(song){
+        console.log(song)
+        const { _id, submission, submissionInfo, artistId } = song;
+          return { id: String(_id), submission, submissionInfo, artistId };
+        
+      }
 }
     
       //   allArtists: () => artists,
@@ -101,10 +121,11 @@ Votes:async(parent,{id})=>{
             
             //  or
              const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
-                artist_info:args.artist_info,email:args.email, password:args.password})
-            console.log("Songs",artist)
-              artist.save()
+                artist_info:args.artist_info,email:args.email, password:args.password});
+            // console.log("Songs",artist)
+              artist.save();
               if(artist){
+                console.log("Songs",artist)
                 const {_id,artist_name, artist_info,spotify,apple, youtube, soundcloud } = artist;
                 return {id:String(_id),artist_name, artist_info,spotify,apple, youtube, soundcloud};
               }else{
@@ -113,11 +134,18 @@ Votes:async(parent,{id})=>{
         },     
         addToWinners:async(parent, args)=>{
             console.log(args)
-        } 
-      
-    }
-};
-
+        },
+        updateProfile:async(_,args)=>{
+         console.log(args)
+         const {id,...data} = args;
+        console.log(data)
+         const updatedData =await Artists.findByIdAndUpdate(id,{$set:data},{new:true})
+         console.log(updatedData); 
+         return args;
+        }
+      },
+    };
+    
 module.exports = resolvers;
 
 

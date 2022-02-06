@@ -14,7 +14,8 @@ import { useHistory } from 'react-router-dom';
 
 import bgpic from '../components/z.gif';
 
-  
+import Nav from "../components/Navbar";
+
 
 const Login = () => {
      

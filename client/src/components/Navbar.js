@@ -108,13 +108,13 @@ if (id) {
           display={{ base: "block", md: "flex", lg: "flex" }}
           align="center"
           p={4}
-          bgColor="#000000"
+          bgColor="#040603"
         >
-           <Heading  color="#fcbc73" m={5} p={2}>
-        sampled..
+           <Heading  color="#faf0e6" m={5} p={2}>
+        sampled...
                   
           </Heading> 
-          <Image 
+          <Image className='logo'
             // animation={animation}
             src={dj}
             alt="sampled logo"
