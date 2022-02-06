@@ -10,12 +10,23 @@ import {
 } from '@chakra-ui/react';
 
 
+import bgpic from '../components/z.gif';
+
   
 
 const Login = () => {
     return (
-      <Flex width="full" align="center" justifyContent="center">
-        <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
+      <Flex                 bgImage={bgpic}
+        
+      // bgImage="url('./pngegg.png')"
+bgPosition="center"
+bgRepeat="no-repeat"
+bgSize="cover"
+width='100vw'
+height='100vh' width="full" align="center" justifyContent="center">
+        <Box 
+
+        p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
             <Heading>Login</Heading>
           </Box>

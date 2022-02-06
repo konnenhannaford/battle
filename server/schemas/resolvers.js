@@ -10,7 +10,7 @@ Query: {
     users:async(parent,args)=>{
         const allArtists = await Artists.find();
         const allSongs = await Songs.find();
-        return {artist:allArtists, songs:allSongs}
+        return {artists:allArtists, songs:allSongs}
     },
     user:async(parent, {email})=>{
           const artist = await Artists.findOne({email:email});
@@ -93,15 +93,15 @@ Votes:async(parent,{id})=>{
         },
         addArtist:async(parent,args)=>{
             console.log(args)
-            // let spotify = args.spotify ? args.spotify : null
-            // let apple = args.apple ? args.apple : null
-            // let soundcloud = args.soundcloud ? args.soundcloud : null
-            // let youtube = args.youtube ? args.youtube : null
-            const artist = new Artist(args)
+            let spotify = args.spotify ? args.spotify : null
+            let apple = args.apple ? args.apple : null
+            let soundcloud = args.soundcloud ? args.soundcloud : null
+            let youtube = args.youtube ? args.youtube : null
+            // const artist = new Artists(args)
             
             //  or
-            //  const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
-            //     artist_info:args.artist_info,email:args.email, password:args.password})
+             const artist = new Artists({spotify, apple, soundcloud, youtube,artist_name:args.artist_name,
+                artist_info:args.artist_info,email:args.email, password:args.password})
             console.log("Songs",artist)
               artist.save()
               if(artist){

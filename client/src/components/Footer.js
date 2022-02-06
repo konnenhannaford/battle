@@ -18,7 +18,14 @@ import { RiInstagramLine, RiFacebookCircleLine } from 'react-icons/ri'
 
 function Footer() {
   return (
-    <Box mt={0} py={0} bgColor="black">
+    <Box
+     mt={1} p={1} 
+     bgColor="black"
+    position="fixed"
+    bottom= {0}
+    left= {0}
+    width= {"100%"}
+>
       <Center>
         <Box display="flex" mb={0}>
 

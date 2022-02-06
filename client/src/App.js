@@ -25,9 +25,9 @@ import Artistprofile from './pages/Artistprofile';
 
 
 // import logo from './vynil.png';
-// import dj from './djk.png';
+import dj from './djk.png';
 
-// import './App.css';
+// import './index.css';
 
 // HEADERS
 

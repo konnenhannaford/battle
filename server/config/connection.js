@@ -45,7 +45,7 @@ dbConnection.on('error', (err) => console.log(`Connection error ${err}`))
 dbConnection.once('open', () => console.log('Connected to DB!'))
 
   } catch (error) {
-    setTimeout(dbConnection,4000)
+    setTimeout(dbConnection,3001)
   }
 };
 
