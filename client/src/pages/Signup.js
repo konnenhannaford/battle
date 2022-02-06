@@ -158,12 +158,13 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, Flex, Box, Heading, FormControl, FormLabel, Button, Alert } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client'
 import { CREATE_ARTIST_MUTATION } from '../GraphQl/Mutations';
 import Auth from '../utils/auth';
 import {useHistory} from "react-router-dom";
+import Nav from "../components/Navbar";
 
 
 const Signup = () => {
@@ -172,7 +173,7 @@ const Signup = () => {
   const history = useHistory ()
     // set state for form validation
   const [showAlert, setShowAlert] = useState(false);
-  const [addArtist, { error: mutationErr }] = useMutation(CREATE_ARTIST_MUTATION)
+  const [addArtist, {data:artistInfo, error: mutationErr }] = useMutation(CREATE_ARTIST_MUTATION)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -184,9 +185,9 @@ const Signup = () => {
     
     console.log(userFormData)
     await addArtist({variables:userFormData})
+    console.log(artistInfo && artistInfo)
 
-    history.push("/");
-    // check if form has everything (as per react-bootstrap docs)
+     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -219,9 +220,17 @@ const Signup = () => {
       apple:''
     });
   };
-  
+  useEffect(()=>{
+    console.log(artistInfo && artistInfo)
+    if(artistInfo){
+      const id = artistInfo["addArtist"].id;
+      history.push(`/${id}`)
+    }
+  },[artistInfo])
         return (
       <Flex width="full" align="center" justifyContent="center">
+        <Nav/>    
+
         <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
             <Heading>Signup</Heading>

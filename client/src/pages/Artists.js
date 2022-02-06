@@ -113,6 +113,7 @@ import { RiSpotifyLine, RiSoundcloudLine, RiYoutubeLine, RiAppleLine, RiInformat
 import { useQuery, gql } from "@apollo/client";
 import { LOAD_DATA } from "../GraphQl/Queries";
 import bgpic from '../components/z.gif';
+import Nav from "../components/Navbar";
 
 
 const Artists = () => {
@@ -131,6 +132,8 @@ if(data){
 },[data])
   return (
     <div>
+            <Nav/>
+
       <Link to="/Artists">
         <Box                 bgImage={bgpic}
         

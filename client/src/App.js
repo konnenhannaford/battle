@@ -20,12 +20,12 @@ import Login from './pages/Login';
 // https://www.apollographql.com/docs/react/api/link/apollo-link-context/
 import Navbar from './components/Navbar';
 // import Samples from './components/Samples';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Artistprofile from './pages/Artistprofile';
 
 
 // import logo from './vynil.png';
-import dj from './djk.png';
+// import dj from './djk.png';
 
 // import './index.css';
 
@@ -64,16 +64,18 @@ function App() {
     <ChakraProvider>
       <ApolloProvider client={client}>
       <Router>
-          <Navbar />
           <Switch>
             <Route exact path="/"><Home /></Route>
             <Route exact path="/winners"><Winners /></Route>
             <Route exact path="/artists"><Artists /></Route>
             <Route exact path="/signup"><Signup /></Route>
-            <Route exact path="/artistprofile"><Artistprofile /></Route>
             <Route exact path="/login"><Login /></Route>
+            <Route exact path="/:id"><Home /></Route>
+            <Route  path="/winners/:id"><Winners /></Route>
+            <Route  path="/:id/artists"><Artists /></Route>
+            <Route path="/artistprofile/:id"><Artistprofile /></Route>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
       </Router>
 </ApolloProvider>
 </ChakraProvider>

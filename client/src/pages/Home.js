@@ -7,6 +7,7 @@ import { BiMusic} from 'react-icons/bi'
 // import bgpic from './pngegg.png'
 // import bgpic from '../components/ss2.png';
 import bgpic from '../components/z.gif';
+import Nav from "../components/Navbar";
 
 const Home = () => {
   const sound = new Howl ({
@@ -16,6 +17,8 @@ const Home = () => {
   });
   return (
     <div>
+            <Nav/>
+
       <Link to="/">
         <Box       
         bgImage={bgpic}

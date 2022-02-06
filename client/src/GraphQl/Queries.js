@@ -23,6 +23,24 @@ export const LOAD_DATA = gql`
 }
 
 `;
+export const GET_USER = gql`
+  query ($id: ID!) {
+  user(id: $id) {
+    artist {
+      id
+      email
+      password
+      artist_name
+      artist_info
+      spotify
+      apple
+      youtube
+      soundcloud
+    }
+  }
+}
+`;
+
 export const DEL_USERS = gql`
   query ($email: String!) {
   user(email: $email) {

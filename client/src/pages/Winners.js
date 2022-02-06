@@ -1,10 +1,13 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { SimpleGrid, Box, Heading, Center } from "@chakra-ui/react";
+import Nav from "../components/Navbar";
 
 const Winners = () => {
   return (
     <div>
+            <Nav/>
+
       <RouterLink to="/Winners">
         <Box>
           <Center>

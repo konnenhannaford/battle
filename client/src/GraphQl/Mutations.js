@@ -30,3 +30,14 @@ mutation ($email: String!, $submission: String!, $submissionInfo: String!, $vote
 
 `;
 
+export const LOGIN_MUTATION = gql`
+mutation ($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    id
+    artist_info
+    artist_name
+    email
+  }
+}
+
+`
