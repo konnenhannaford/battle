@@ -10,8 +10,7 @@
               mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/sampledbattles', {
                     useNewUrlParser: true,
               useUnifiedTopology: true,
-              useCreateIndex: true,
-              useFindAndModify: false,
+              
             })
             const dbConnection = mongoose.connection
         dbConnection.on('error', (err) => console.log(`Connection error ${err}`))
