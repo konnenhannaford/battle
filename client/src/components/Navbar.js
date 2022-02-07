@@ -42,11 +42,11 @@ function Nav() {
           display={{ base: "block", md: "flex", lg: "flex" }}
           align="center"
           p={4}
-          bgColor="#040603"
+          bgColor="transparent"
           
         >
-                               <Heading color="#faf0e6" m={5} p={2}>
-        sampled<span color="yellow.100">...</span>
+                               <Heading color="#faf0e6"   className="blurb" m={5} p={2}>
+        sampled<span color="yellow.900">...</span>
                   
           </Heading> 
                    <Image className="logo"
@@ -57,7 +57,7 @@ function Nav() {
           ></Image>
           <Spacer />
 
-          <Tabs justify="center" color="white" variant="unstyled" pt={8}>
+          <Tabs align="center" justify="center" color="white" variant="unstyled" pt={8}>
               <TabList>
                 <Tab>
                   <RouterLink to={`/${id}`}> <Tooltip label='Home'><span><AiOutlineHome /></span></Tooltip></RouterLink>
@@ -66,10 +66,6 @@ function Nav() {
                 <RouterLink to={`/artists/${id}`}> <Tooltip label='Artists'><span><HiUserGroup /></span></Tooltip></RouterLink>
 
                   {/* <RouterLink to={`/artists/${id}`}><Icon as={HiUserGroup} /></RouterLink> */}
-                </Tab>
-                <Tab>
-                <RouterLink to={`/winners/${id}`}> <Tooltip label='Winners'><span><FaMedal /></span></Tooltip></RouterLink>
-                  {/* <RouterLink to={`/winners/${id}`}><Icon as={FaMedal} /></RouterLink> */}
                 </Tab>
                 <Tab>
                 <RouterLink to={`/artistprofile/${id}`}> <Tooltip label='Artist Profile'><span><RiAccountCircleLine /></span></Tooltip></RouterLink>
@@ -97,7 +93,8 @@ function Nav() {
           display={{ base: "block", md: "flex", lg: "flex" }}
           align="center"
           p={4}
-          bgColor="#040603"
+          // bgColor="#040603"
+          bgColor="transparent"
 //                   bgImage={bgpic}
         
 //   bgPosition="center"
@@ -125,8 +122,8 @@ function Nav() {
           ></video> */}
 
     
-                    <Heading color="#faf0e6" m={5} p={2}>
-            samfffpled..
+                    <Heading  fontSize="6xl" className="writtenlogo" color="#faf0e6" m={5} p={2}>
+            sampled...
           </Heading>
           <Image className="logo"
             // px={4}
@@ -136,9 +133,9 @@ function Nav() {
           ></Image>
           <Spacer />
 
-          {/* <Spacer /> */}
           <Box justify="center">
-            <Tabs color="#fcbc73" variant="unstyled" pt={8}>
+            <Tabs             h="100"
+color="#faf0e6" pt={8}>
               <TabList>
                 <Tab>
                 <RouterLink to={`/`}> <Tooltip label='Home'><span><AiOutlineHome /></span></Tooltip></RouterLink>
@@ -147,17 +144,11 @@ function Nav() {
                 <RouterLink to={`/artists`}> <Tooltip label='Artists'><span><HiUserGroup /></span></Tooltip></RouterLink>
                 </Tab>
                 <Tab>
-                <RouterLink to={`/winners`}> <Tooltip label='Winners'><span><FaMedal /></span></Tooltip></RouterLink>
-                </Tab>
-                <Tab>
                 <RouterLink to={`/signup`}> <Tooltip label='Signup'><span><TiUserAddOutline /></span></Tooltip></RouterLink>
                 </Tab>
                 <Tab>
-                <RouterLink to={`/login`}> <Tooltip label='Login'><span><BiLogInCircle /></span></Tooltip></RouterLink>
-
-                  {/* <RouterLink to="/login"> <Icon as={BiLogInCircle} /></RouterLink> */}
+                <RouterLink to={`/login`}> <Tooltip label='Login'><span><BiLogInCircle h={100} /></span></Tooltip></RouterLink>
                 </Tab>
-              
               </TabList>
             </Tabs>
           </Box>

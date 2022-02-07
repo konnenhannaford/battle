@@ -13,7 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Artists from './pages/Artists';
-import Winners from './pages/Winners';
+// import Winners from './pages/Winners';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 // what set conetxt does?
@@ -66,12 +66,12 @@ function App() {
       <Router>
           <Switch>
             <Route exact path="/"><Home /></Route>
-            <Route exact path="/winners"><Winners /></Route>
+            {/* <Route exact path="/winners"><Winners /></Route> */}
             <Route exact path="/artists"><Artists /></Route>
             <Route exact path="/signup"><Signup /></Route>
             <Route  path="/login"><Login /></Route>
             <Route exact path="/:id"><Home /></Route>
-            <Route  exact path="/winners/:id"><Winners /></Route>
+            {/* <Route  exact path="/winners/:id"><Winners /></Route> */}
             <Route  exact path="/artists/:id"><Artists /></Route>
             <Route exact path="/artistprofile/:id"><Artistprofile /></Route>
           </Switch>

@@ -1,19 +1,13 @@
 body {
-  font-family: 'Rubik', sans-serif;
-/* background-color: aqua; */
+  /* font-family: 'Rubik', sans-serif; */
+background: transparent;
 
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Rubik Mono One', sans-serif;
-}
+font-family: 'Coiny', cursive;}
 
 .small {
   font-weight: 300;
   font-style: italic;
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');

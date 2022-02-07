@@ -10,9 +10,14 @@ background-attachment: fixed;
 
 }
 
-body {
-  background: transparent;
+:root {
+  --chakra-colors: transparent;
+}
 
+
+
+body {
+  background: transparent !important;
 }
 .logo {
 
@@ -24,7 +29,11 @@ animation-timing-function: linear;
 
 }
 
-
+.blurb {
+  font-family: 'Coiny', cursive;}
+  
+  .writtenlogo {
+    font-family: 'Comfortaa', cursive;}
 
 .logo:before , .logo:after{
 content:"";
@@ -45,3 +54,7 @@ transform:rotate(57deg);
   transform:rotate(360deg);
 }
 }
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');

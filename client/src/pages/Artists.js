@@ -33,13 +33,14 @@ useEffect(() => {
       <Nav/>
       <Link to="/Artists">
         <Box 
-                   bgImage={bgpic}
-                   bgPosition="center"
-                   bgRepeat="no-repeat"
-                   bgSize="cover"
-                   width='100%'
-                   height='100%'
-                   bgAttachment= "fixed">
+                  //  bgImage={bgpic}
+                  //  bgPosition="center"
+                  //  bgRepeat="no-repeat"
+                  //  bgSize="cover"
+                  //  width='100%'
+                  //  height='100%'
+                  //  bgAttachment= "fixed"
+                   >
           <Center>
             <Heading color="#1a535c" m={4} p={4}>
             artists

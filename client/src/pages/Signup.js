@@ -77,13 +77,13 @@ const Signup = () => {
           <Nav/>
     
           <Flex 
-                    bgImage={bgpic}
-                    bgPosition="center"
-                    bgRepeat="no-repeat"
-                    bgSize="cover"
-                    width='100%'
-                    height='100%'
-                    bgAttachment= "fixed"
+                    // bgImage={bgpic}
+                    // bgPosition="center"
+                    // bgRepeat="no-repeat"
+                    // bgSize="cover"
+                    // width='100%'
+                    // height='100%'
+                    // bgAttachment= "fixed"
      width="full" align="center" justifyContent="center">
         <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
