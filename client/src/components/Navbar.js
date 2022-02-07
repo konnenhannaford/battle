@@ -46,7 +46,7 @@ function Nav() {
           
         >
                                <Heading color="#faf0e6" m={5} p={2}>
-        samfffxxxxxpled..
+        sampled<span color="yellow.100">...</span>
                   
           </Heading> 
                    <Image className="logo"
@@ -75,11 +75,16 @@ function Nav() {
                 <RouterLink to={`/artistprofile/${id}`}> <Tooltip label='Artist Profile'><span><RiAccountCircleLine /></span></Tooltip></RouterLink>
                   {/* <RouterLink to={`/artistprofile/${id}`}> <Icon as={RiAccountCircleLine} /></RouterLink> */}
                 </Tab>
-              <Tab>
-                <a href="/" onClick={() => Auth.logout()}><RouterLink to={`/`}> <Tooltip label='Logout'><span><BiLogOutCircle /></span></Tooltip></RouterLink></a>
-                {/* <Icon as={BiLogOutCircle} /> */}
-         
-              </Tab>
+                {/* <Tab>
+                  {/* <RouterLink to={`/`}  onClick={()) => Auth.logout()> <Tooltip label='Logout'><span><BiLogOutCircle /></span></Tooltip></RouterLink> */}
+                  {/* <RouterLink to={`/`}  onClick={() => Auth.logout()></RouterLink> */}
+                 {/* <Icon as={BiLogOutCircle} /> */}
+                 <Tab>
+                 <RouterLink to={`/`}  > <Tooltip label='Logout'><span><BiLogOutCircle /></span></Tooltip></RouterLink>
+                 </Tab>
+                  {/* <RouterLink to={`/artistprofile/${id}`}> <Icon as={RiAccountCircleLine} /></RouterLink> */}
+                  {/* onClick={() => Auth.logout()} */}
+                {/* </Tab> */} 
             </TabList>
           </Tabs>
         </Box>
@@ -148,7 +153,7 @@ function Nav() {
                 <RouterLink to={`/signup`}> <Tooltip label='Signup'><span><TiUserAddOutline /></span></Tooltip></RouterLink>
                 </Tab>
                 <Tab>
-                <RouterLink to={`/login}`}> <Tooltip label='Login'><span><BiLogInCircle /></span></Tooltip></RouterLink>
+                <RouterLink to={`/login`}> <Tooltip label='Login'><span><BiLogInCircle /></span></Tooltip></RouterLink>
 
                   {/* <RouterLink to="/login"> <Icon as={BiLogInCircle} /></RouterLink> */}
                 </Tab>

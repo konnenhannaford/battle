@@ -69,7 +69,7 @@ function App() {
             <Route exact path="/winners"><Winners /></Route>
             <Route exact path="/artists"><Artists /></Route>
             <Route exact path="/signup"><Signup /></Route>
-            <Route exact path="/login"><Login /></Route>
+            <Route  path="/login"><Login /></Route>
             <Route exact path="/:id"><Home /></Route>
             <Route  exact path="/winners/:id"><Winners /></Route>
             <Route  exact path="/artists/:id"><Artists /></Route>
