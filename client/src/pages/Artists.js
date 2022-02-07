@@ -118,21 +118,22 @@ import Nav from "../components/Navbar";
 
 const Artists = () => {
   
-const {data, error, loading} = useQuery(LOAD_DATA);
+  const {data, error, loading} = useQuery(LOAD_DATA);
 
-const [allArtists, setAllArtists] = useState([]);
-console.log(allArtists);
-useEffect(()=>{
-if(data){
-  console.log(data.users.artists)
-
-  setAllArtists(data.users.artists);
-}
-
-},[data])
-  return (
-    <div>
-            <Nav/>
+  const [allArtists, setAllArtists] = useState([]);
+  console.log(allArtists);
+  useEffect(()=>{
+  if(data){
+    console.log(data.users.artists)
+  
+    setAllArtists(data.users.artists);
+  }
+  
+  },[data])
+    return (
+      <div>
+        <Nav/>
+  
 
       <Link to="/Artists">
         <Box                 bgImage={bgpic}

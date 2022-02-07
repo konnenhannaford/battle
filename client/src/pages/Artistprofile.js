@@ -5,15 +5,57 @@ import { Icon, FormControl, FormLabel, Input, Button, Box, Heading, Center } fro
 import { RiSpotifyLine, RiSoundcloudLine, RiYoutubeLine, RiAppleLine, RiInformationLine} from 'react-icons/ri'
 import { useQuery, gql } from "@apollo/client";
 import { GET_USER } from "../GraphQl/Queries";
+import { useMutation } from '@apollo/client'
+import { CREATE_SONG_MUTATION, UPDATE_PROFILE } from '../GraphQl/Mutations';
 
 const Artistprofile = () => {
+
   const {id} = useParams()
+ console.log(id)
   const { data, error, loading } = useQuery(GET_USER, {
     variables: { id:id },
   });
+  const [addSong,{data:SongAdded}] = useMutation(CREATE_SONG_MUTATION)
+  const [updateProfile, {data:Profile}] = useMutation(UPDATE_PROFILE);
   const [userData, setUserData] = useState();
   console.log(userData);
-
+  const history = useHistory();
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserData({ ...userData, [name]: value });
+  };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(userData);
+     await updateProfile({variables:{...userData, id}})
+  }
+  const [songData, setSongData] = useState({submission:"",submissionInfo:""});
+  //console.log(userData);
+  const handleSongChange = (event) => {
+    const { name, value } = event.target;
+    setSongData({ ...songData, [name]: value });
+  };
+  const handleSongSubmit = async (event) =>{   
+    event.preventDefault(); 
+    console.log(songData);
+   await addSong({variables:{...songData,artistId:id}})
+  }
+  useEffect(()=>{
+    console.log(Profile && Profile)
+    if(Profile){
+     //localStorage.setItem("artistProfile",JSON.stringify(Profile))
+      history.push(`/${id}`)
+     // history.replace(redirectPath);
+    }
+  },[Profile])
+  useEffect(()=>{
+    console.log(SongAdded)
+    if(SongAdded){
+      //localStorage.setItem("AddedSong",JSON.stringify(SongAdded))
+      console.log(SongAdded)
+      history.push(`/${id}`)
+    }
+  },[SongAdded])
   useEffect(() => {
     if (data) {
       console.log(data);
@@ -22,12 +64,10 @@ const Artistprofile = () => {
       setUserData(artist);
     }
   }, [data]);
-
   return (
     <div>
-<Nav/>    
-      <Link to="/artistprofile">
-        <Box>
+  <Nav/>    
+  <Box>
           <Center>
             <Heading color="#1a535c" m={4} p={4}>
               Your Profile
@@ -36,6 +76,7 @@ const Artistprofile = () => {
         </Box>
         <Box boxShadow="xl" p="6" rounded="md" bg="white">
           <h1> Artist 1 </h1>
+          <form onSubmit={handleFormSubmit}>
           <FormControl>
             <FormLabel>
               <h3>
@@ -46,26 +87,12 @@ const Artistprofile = () => {
             </FormLabel>
             <Input
               type="email"
+              name="email"
               defaultValue={userData && userData.email}
               placeholder="describe yourself"
-            />
-            <FormLabel>
-              <h3>
-                {" "}
-                <Icon as={RiInformationLine} />
-                Should this be artist name or user name?{" "}
-              </h3>
-            </FormLabel>
-            <Input type="text" placeholder="describe yourself" />
-            <FormLabel>
-              <h3>
-                {" "}
-                <Icon as={RiInformationLine} />
-                Password:{" "}
-              </h3>
-            </FormLabel>
-            <Input type="text" placeholder="describe yourself" />
-            <FormLabel>
+              onChange={handleInputChange}
+            />     
+      <FormLabel>
               <h3>
                 {" "}
                 <Icon as={RiInformationLine} />* Artist Name:{" "}
@@ -75,6 +102,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.artist_name}
               placeholder="describe yourself"
+              onChange={handleInputChange}
+              name="artist_name"
             />
             <FormLabel>
               <h3>
@@ -86,6 +115,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.artist_info}
               placeholder="describe yourself"
+              onChange={handleInputChange}
+               name="artist_info"
             />
             <FormLabel>
               <h3>
@@ -97,6 +128,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.spotify}
               placeholder="provide your spotify link"
+              onChange={handleInputChange}
+              name="spotify"
             />
             <FormLabel>
               {" "}
@@ -109,6 +142,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.youtube}
               placeholder="provide your youtube link"
+              onChange={handleInputChange}
+              name="youtube"
             />
             <FormLabel>
               {" "}
@@ -121,6 +156,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.soundcloud}
               placeholder="provide your soundcloud link"
+              onChange={handleInputChange}
+              name="soundcloud"
             />
             <FormLabel>
               <h3>
@@ -132,6 +169,8 @@ const Artistprofile = () => {
               type="text"
               defaultValue={userData &&userData.apple}
               placeholder="provide your apple link"
+              onChange={handleInputChange}
+               name="apple"
             />
           </FormControl>
           <Button
@@ -143,8 +182,24 @@ const Artistprofile = () => {
           >
             Update profile
           </Button>
+          </form>
         </Box>
-      </Link>
+        <Box boxShadow='xl' p='6' rounded='md' bg='white'>
+            <form onSubmit={handleSongSubmit}>
+              <FormControl>
+                <FormLabel><h3> <Icon as={RiAppleLine} /> SONG NAME: </h3></FormLabel>
+                <Input type="text"name="submission"onChange={handleSongChange}
+                value={songData.submission} placeholder="provide a name for your song" />
+             
+              <FormLabel><h3> <Icon as={RiAppleLine} /> SONG UPLOAD: </h3></FormLabel>
+                <Input type="text"name="submissionInfo"onChange={handleSongChange}
+                value={songData.submissionInfo} placeholder="provide a link for your song" />
+              </FormControl>
+              <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
+            Add your song
+            </Button>
+            </form>
+          </Box>
     </div>
   );
 };

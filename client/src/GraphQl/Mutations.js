@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 
 
 import { gql } from '@apollo/client'
@@ -19,17 +19,16 @@ mutation($email: String!, $password: String!, $artistName: String!, $artistInfo:
 }
 `;
 export const CREATE_SONG_MUTATION = gql`
-mutation ($email: String!, $submission: String!, $submissionInfo: String!, $votes: Int!) {
-  addSong(email: $email, submission: $submission, submissionInfo: $submissionInfo, votes: $votes) {
+mutation ($submission: String!, $submissionInfo: String!, $artistId: String!) {
+  addSong(submission: $submission, submissionInfo: $submissionInfo, artistId: $artistId) {
     id
     submission
     submissionInfo
-    votes
+    artistId
   }
 }
 
 `;
-
 export const LOGIN_MUTATION = gql`
 mutation ($email: String!, $password: String!) {
   login(email: $email, password: $password) {
@@ -40,4 +39,20 @@ mutation ($email: String!, $password: String!) {
   }
 }
 
+`;
+export const UPDATE_PROFILE = gql`
+
+mutation ($id: ID!, $email: String, $password: String, $artist_name: String, $artist_info: String, $spotify: String, $youtube: String, $apple: String, $soundcloud: String) {
+  updateProfile(id: $id, email: $email, password: $password, artist_name: $artist_name, artist_info: $artist_info, spotify: $spotify, youtube: $youtube, apple: $apple, soundcloud: $soundcloud) {
+    id
+    email
+    password
+    artist_name
+    artist_info
+    apple
+    spotify
+    youtube
+    soundcloud
+  }
+}
 `

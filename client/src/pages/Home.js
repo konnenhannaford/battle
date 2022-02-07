@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import {  Stack, Button, SimpleGrid,  Box, Text } from "@chakra-ui/react";
 import {Howl} from "howler";
 import sam1 from './sam1.mp3'
@@ -8,19 +8,67 @@ import { BiMusic} from 'react-icons/bi'
 // import bgpic from '../components/ss2.png';
 import bgpic from '../components/z.gif';
 import Nav from "../components/Navbar";
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { LOAD_DATA, DEL_SONG} from "../GraphQl/Queries";
 
-const Home = () => {
-  const sound = new Howl ({
-    src: {sam1},
-    html5: true,
+              const Home = () => {
+                // const sound = new Howl ({
+                //   src: {sam1},
+                //   html5: true,
   
-  });
-  return (
-    <div>
-            <Nav/>
+    //window.location.reload(false)
+  const {id} = useParams();
+  const [allSongs, setAllSongs] = useState();
+  const [songsUser, setUserSongs] = useState();
+  const { data: Songs } = useQuery(LOAD_DATA);
+  const [deleteSong,{ data: delSong, error, loading, refetch }] = useLazyQuery(DEL_SONG);
+ 
+  //const { data: userSongs, error:UserErr, loading:UserSongsLoading } = useQuery(USER_SONGS,{variables:{artistId:id}});
+  const handleDelete = (id) =>{
+    deleteSong({variables:{deleteSongId:id}})
+    console.log(id);
 
-      <Link to="/">
-        <Box       
+  }
+console.log(delSong)
+ // console.log(allSongs);
+ // console.log(songsUser)
+ useEffect(()=>{
+  console.log(delSong && delSong);
+  if(delSong){
+    const list = delSong.deleteSong;
+    const remainingSongs = songsUser.filter((song)=>song.id !== list.id);
+        console.log(remainingSongs);
+        setUserSongs(remainingSongs) 
+  } 
+
+ },[delSong])
+  useEffect(() => {
+    console.log(Songs && Songs);
+    if (Songs) {
+      const list = Songs.users.songs
+      if(id){
+        const artistSongs = list.filter((song)=>song.artistId === id);
+        console.log(artistSongs); 
+        const otherSongs = list.filter((song)=>song.artistId !== id);
+        console.log(otherSongs)
+        setUserSongs(artistSongs);
+        setAllSongs(otherSongs);
+      }else{
+        setAllSongs(Songs.users.songs)
+      }
+      //setAllSongs(Songs.users.songs);
+    }
+  }, [Songs]);
+ // window.location.reload(false);
+
+
+  return (
+    
+      <div>
+        <Nav />
+  
+          <Box
+         
         bgImage={bgpic}
         
         // bgImage="url('./pngegg.png')"
@@ -93,41 +141,69 @@ const Home = () => {
                     rounded='lg'
                  >
                     <Box>THIS WEEKS SUBMISSIONS</Box>
-                    <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
-                    <h1> Submission 1 </h1>
-                    <h3> Artist </h3>
-                    <h3> Song </h3>
-
-                    </Box>
-                    <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
-                    <h1> Submission 1 </h1>
-                    <h3> Artist </h3>
-                    <h3> Song </h3>
-
-                    </Box>
-                    <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
-                    <h1> Submission 1 </h1>
-                    <h3> Artist </h3>
-                    <h3> Song </h3>
-
-                    </Box>
-                    <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
-                    <h1> Submission 1 </h1>
-                    <h3> Artist </h3>
-                    <h3> Song </h3>
-
-                    </Box>
-                    <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
-                    <h1> Submission 1 </h1>
-                    <h3> Artist </h3>
-                    <h3> Song </h3>
-
-                    </Box>
-                    </SimpleGrid>
+                    {songsUser &&
+              songsUser.map((song) => {
+                return (
+                  <Box boxShadow="xl" p="6" rounded="md" bg="white"color={"black"}>
+                    <h1>{song.submission} </h1>
+                    <p>{song.submissionInfo}</p>
+                    <button bg="red" onClick={()=>handleDelete(song.id)}>DELETE</button>
+                  </Box>
+                );
+              })}
+            {allSongs &&
+              allSongs.map((song) => {
+                return (
+                  <Box boxShadow="xl" p="6" rounded="md" bg="white"color={"black"}>
+                    <h1>{song.submission} </h1>
+                    <p>{song.submissionInfo}</p>
+                  </Box>
+                );
+              })}
+          </SimpleGrid>
         </Box>
-      </Link>
     </div>
   );
 };
-
 export default Home;
+
+                                                          /* <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
+                                                          <h1> Submission 1 </h1>
+                                                          <h3> Artist </h3>
+                                                          <h3> Song </h3>
+
+                                                          </Box>
+                                                          <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
+                                                          <h1> Submission 1 </h1>
+                                                          <h3> Artist </h3>
+                                                          <h3> Song </h3>
+
+                                                          </Box>
+                                                          <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
+                                                          <h1> Submission 1 </h1>
+                                                          <h3> Artist </h3>
+                                                          <h3> Song </h3>
+
+                                                          </Box>
+                                                          <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
+                                                          <h1> Submission 1 </h1>
+                                                          <h3> Artist </h3>
+                                                          <h3> Song </h3>
+
+                                                          </Box>
+                                                          <Box border='1px' borderColor='gray.200' boxShadow='xl' p='6' rounded='md' bg='transparent'>
+                                                          <h1> Submission 1 </h1>
+                                                          <h3> Artist </h3>
+                                                          <h3> Song </h3>
+
+                                                          </Box>
+                                                          </SimpleGrid>
+                                              </Box>
+                                            </Link>
+                                          </div>
+                                        );
+                                      }; */
+
+                                      // export default Home;
+
+                                      

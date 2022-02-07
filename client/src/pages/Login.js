@@ -31,7 +31,7 @@ const Login = () => {
     e.preventDefault()
    console.log(formData);
    login({variables:formData})
-   setFormData({email:"", password:""})
+  //  setFormData({email:"", password:""})
   }
   useEffect(()=>{
     console.log(loginInput && loginInput)
@@ -42,6 +42,9 @@ const Login = () => {
   },[loginInput])
 
     return (
+      <div>
+      <Nav/>
+
       <Flex                 bgImage={bgpic}
         
       // bgImage="url('./pngegg.png')"
@@ -72,7 +75,7 @@ height='100vh' width="full" align="center" justifyContent="center">
             </form>
           </Box>
         </Box>
-      </Flex>
+      </Flex></div>
     );
   }
 

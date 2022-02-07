@@ -162,7 +162,7 @@ import React, { useEffect, useState } from 'react';
 import { Input, Flex, Box, Heading, FormControl, FormLabel, Button, Alert } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client'
 import { CREATE_ARTIST_MUTATION } from '../GraphQl/Mutations';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 import {useHistory} from "react-router-dom";
 import Nav from "../components/Navbar";
 
