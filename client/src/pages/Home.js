@@ -6,6 +6,7 @@ import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import { LOAD_DATA, DEL_SONG} from "../GraphQl/Queries";
 import { BiMusic} from 'react-icons/bi'
 import bgpic from '../components/z.gif';
+import '../components/logo.css';
 
 const Home = () => {
   //window.location.reload(false)
@@ -57,15 +58,15 @@ console.log(delSong)
       <Nav />
 
         <Box
-        bgImage={bgpic}
+  //       bgImage={bgpic}
         
-        // bgImage="url('./pngegg.png')"
-  bgPosition="center"
-  bgRepeat="no-repeat"
-  bgSize="cover"
-  width='100%'
-  height='100%'
-  bgAttachment= "fixed"
+  //       // bgImage="url('./pngegg.png')"
+  // bgPosition="center"
+  // bgRepeat="no-repeat"
+  // bgSize="cover"
+  // width='100%'
+  // height='100%'
+  // bgAttachment= "fixed"
 >
           <Text 
           fontSize={20}>

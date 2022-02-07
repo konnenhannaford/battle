@@ -10,7 +10,7 @@ import bgpic from '../components/z.gif';
 
 const Artists = () => {
   
-const {data, error, loading} = useQuery(LOAD_DATA);
+const {refetch, data, error, loading} = useQuery(LOAD_DATA);
 
 const [allArtists, setAllArtists] = useState([]);
 console.log(allArtists);
@@ -21,7 +21,12 @@ if(data){
   setAllArtists(data.users.artists);
 }
 
-},[data])
+
+},[data]);
+
+useEffect(() => {
+  refetch();
+}, [])
   return (
     <div
     >

@@ -30,7 +30,7 @@ const Artistprofile = () => {
 
   const {id} = useParams()
  console.log(id)
-  const { data, error, loading } = useQuery(GET_USER, {
+  const {refetch, data, error, loading } = useQuery(GET_USER, {
     variables: { id:id },
   });
   const [addSong,{data:SongAdded}] = useMutation(CREATE_SONG_MUTATION)
@@ -82,6 +82,12 @@ const Artistprofile = () => {
       setUserData(artist);
     }
   }, [data]);
+
+
+  useEffect(() => {
+    refetch();
+  }, [])
+  
   return (
     <div>
 
@@ -225,7 +231,7 @@ const Artistprofile = () => {
                 <Input type="text"name="submissionInfo"onChange={handleSongChange}
                 value={songData.submissionInfo} placeholder="provide a link for your song" />
               </FormControl>
-              <Button type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
+              <Button onClick={() => refetch()} type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
             Add your song
             </Button>
             </form>
