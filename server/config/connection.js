@@ -36,8 +36,11 @@ require("dotenv").config();
 const dbConnection = (URI) => {
   try {
     const mongoose = require('mongoose')
-    mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/sampledbattles?retryWrites=true&w=majority', {
-      useNewUrlParser: true,
+    // mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/3001/sampledbattles', {
+      // mongoose.connect('mongodb://user:user123@cluster0-shard-00-00.arwzj.mongodb.net:27017,cluster0-shard-00-01.arwzj.mongodb.net:27017,cluster0-shard-00-02.arwzj.mongodb.net:27017/songdata?ssl=true&replicaSet=atlas-f3wnz1-shard-0&authSource=admin&retryWrites=true&w=majority', {
+        // mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/sampledbattles?retryWrites=true&w=majority', {
+          mongoose.connect( 'mongodb+srv://konnen23:endalkachew23@cluster0.iaodg.mongodb.net/sampledbattles?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
       useUnifiedTopology: true,
     })
     const dbConnection = mongoose.connection

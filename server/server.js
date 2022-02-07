@@ -1,188 +1,273 @@
-require('dotenv').config()
 const express = require('express');
 const path = require('path');
-const dbConnection = require('./config/connection');
-// const { authMiddleware } = require('./utils/auth');
+        const dbConnection = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
+// const routes = require('./routes');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
+// const Router = require('./routes/app');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const URI = process.env.MONGODB_URI;
 
-
 const server = new ApolloServer({
-typeDefs,
-resolvers,
-playground: true,
-introspection: true,
-// context: authMiddleware
+        typeDefs,
+        resolvers,
+        playground: true,
+        introspection: true,
 });
-
-                // app.use(express.urlencoded({ extended: true }));
-                // app.use(express.json());
-
-                //                 if (process.env.NODE_ENV === 'production') {
-                //                 app.use(express.static(path.join(__dirname, '../client/build')));
-                // }
-
-
-                // app.get('*', (req, res) => {
-                // res.sendFile(path.join(__dirname, '../client/build/index.html'));
-                // });
-
-                // dbConnection(URI)
-
 const serverConfig = async () => {
-await server.start();
-server.applyMiddleware({ app });
-};
-serverConfig();
+        await server.start();
+        server.applyMiddleware({ app });
+      };
+      serverConfig();
+// (async function(){
+//         var body = await httpGet('link');
+//         $.response.setBody(body);
+//     })()
+    
+    // from docs
+// await server.start: async () => {
+        //     return await User.find().select('-__v -password').populate('savedBooks');
+        // },
+/*
+app.use(express.json());
+        const serverConfig = async () => {
+                await server.start();
+                server.applyMiddleware({ app });
+              };
+              serverConfig();
+// app.get("/",(req,res)=>{res.send("Hello there")})
+// if we're in production, serve client/build as static assets
 
+if (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+// app.use("/app",Router)
+//       // this
+                                app.get('*', (req, res) => {
+                                res.sendFile(path.join(__dirname, '../client/build/index.html'));
+                                });
+
+// app.get('/guneet/home', (req, res) => {
+//         res.sendFile();
+// });
+*/
 dbConnection()
 
-app.listen({ port: PORT }, () => {
-console.log(`🌍 Now listening on localhost:${PORT}`);
-console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+app.listen({ port: 4000 }, () => {
+  console.log(`🌍 Now listening on localhost:${4000}`);
+  console.log(`Use GraphQL at http://localhost:${4000}${server.graphqlPath}`);
 });
 
 
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
 
 
 
 
 
 
-// ---------------------------------------------------------------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-
-
-
-// const express = require('express');
-// const { ApolloServer } = require('apollo-server-express');
-// const path = require('path');
-
-// const { typeDefs, resolvers } = require('./schemas');
-// const { authMiddleware } = require('./utils/auth');
-
-// const db = require('./config/connection');
-
-// const PORT = process.env.PORT || 3001;
-// const app = express();
-
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware,
-// });
-
-// const serverConfig = async () => {
-//     await server.start();
-//     server.applyMiddleware({ app });
-//   };
-//               serverConfig();
-
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-// }
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
-
-// db.once('open', () => {
-//   app.listen(PORT, () => {
-//     console.log(`API server running on port ${PORT}!`);
-//     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-//   });
-// });
 
 
 
 
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
 
-
-
-
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-// -----------------------------------------------------
-
-// using this METHOD
-// https://question-it.com/questions/5542607/oshibka-vy-dolzhny-await-serverstart-pered-vyzovom-serverapplymiddleware
-
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
+// ---------------------_---------------------_---------------------_---------------------_---------------------_
 
 // require('dotenv').config()
+// const express = require('express');
 // const path = require('path');
 // const dbConnection = require('./config/connection');
+// // const { authMiddleware } = require('./utils/auth');
+// const { ApolloServer } = require('apollo-server-express');
+// const { typeDefs, resolvers } = require('./schemas');
 
-// import { ApolloServer } from 'apollo-server-express';
-// import express from 'express';
-// import { METHODS } from 'http';
-
-// async function startApolloServer(typeDefs, resolvers) {
-//   // Same ApolloServer initialization as before
-//   const server = new ApolloServer({ typeDefs, resolvers });
-
-//   // Required logic for integrating with Express
-//   await server.start();
-
-//   const app = express();
+// const app = express();
+// const PORT = process.env.PORT || 3001;
+// const URI = process.env.MONGODB_URI;
 
 
-//   server.applyMiddleware({
-//      app,
-//   context: authMiddleware,
+// const server = new ApolloServer({
+// typeDefs,
+// resolvers,
+// playground: true,
+// introspection: true,
+// // context: authMiddleware
+// });
 
-//      // By default, apollo-server hosts its GraphQL endpoint at the
-//      // server root. However, *other* Apollo Server packages host it at
-//      // /graphql. Optionally provide this to match apollo-server.
-//      path: '/'
-//   });
+//                 // app.use(express.urlencoded({ extended: true }));
+//                 // app.use(express.json());
 
-//   dbConnection()
+//                 //                 if (process.env.NODE_ENV === 'production') {
+//                 //                 app.use(express.static(path.join(__dirname, '../client/build')));
+//                 // }
 
 
-//   // Modified server startup
-//   await new Promise(resolve => app.listen({ port: 4000 }, resolve));
-//   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-// }
+//                 // app.get('*', (req, res) => {
+//                 // res.sendFile(path.join(__dirname, '../client/build/index.html'));
+//                 // });
+
+//                 // dbConnection(URI)
+
+// const serverConfig = async () => {
+// await server.start();
+// server.applyMiddleware({ app });
+// };
+// serverConfig();
+
+// dbConnection()
+
+// app.listen({ port: PORT }, () => {
+// console.log(`🌍 Now listening on localhost:${PORT}`);
+// console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+// });
+
+
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+
+
+
+
+
+
+// // ---------------------------------------------------------------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+
+
+
+// // const express = require('express');
+// // const { ApolloServer } = require('apollo-server-express');
+// // const path = require('path');
+
+// // const { typeDefs, resolvers } = require('./schemas');
+// // const { authMiddleware } = require('./utils/auth');
+
+// // const db = require('./config/connection');
+
+// // const PORT = process.env.PORT || 3001;
+// // const app = express();
+
+// // const server = new ApolloServer({
+// //   typeDefs,
+// //   resolvers,
+// //   context: authMiddleware,
+// // });
+
+// // const serverConfig = async () => {
+// //     await server.start();
+// //     server.applyMiddleware({ app });
+// //   };
+// //               serverConfig();
+
+// // app.use(express.urlencoded({ extended: false }));
+// // app.use(express.json());
+
+// // if (process.env.NODE_ENV === 'production') {
+// //   app.use(express.static(path.join(__dirname, '../client/build')));
+// // }
+
+// // app.get('*', (req, res) => {
+// //   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// // });
+
+// // db.once('open', () => {
+// //   app.listen(PORT, () => {
+// //     console.log(`API server running on port ${PORT}!`);
+// //     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+// //   });
+// // });
+
+
+
+
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+
+
+
+
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+// // -----------------------------------------------------
+
+// // using this METHOD
+// // https://question-it.com/questions/5542607/oshibka-vy-dolzhny-await-serverstart-pered-vyzovom-serverapplymiddleware
+
+
+// // require('dotenv').config()
+// // const path = require('path');
+// // const dbConnection = require('./config/connection');
+
+// // import { ApolloServer } from 'apollo-server-express';
+// // import express from 'express';
+// // import { METHODS } from 'http';
+
+// // async function startApolloServer(typeDefs, resolvers) {
+// //   // Same ApolloServer initialization as before
+// //   const server = new ApolloServer({ typeDefs, resolvers });
+
+// //   // Required logic for integrating with Express
+// //   await server.start();
+
+// //   const app = express();
+
+
+// //   server.applyMiddleware({
+// //      app,
+// //   context: authMiddleware,
+
+// //      // By default, apollo-server hosts its GraphQL endpoint at the
+// //      // server root. However, *other* Apollo Server packages host it at
+// //      // /graphql. Optionally provide this to match apollo-server.
+// //      path: '/'
+// //   });
+
+// //   dbConnection()
+
+
+// //   // Modified server startup
+// //   await new Promise(resolve => app.listen({ port: 4000 }, resolve));
+// //   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+// // }
 
 

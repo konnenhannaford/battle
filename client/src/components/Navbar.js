@@ -1,190 +1,238 @@
+import React, { useEffect } from "react";
+import Auth from "../utils/auth";
+import { Link as RouterLink, useParams } from "react-router-dom";
+import {
+  // Center,
+  Spacer,
+  Tooltip,
+  // keyframes,
+  // Link,
+  // HStack, 
+  // Button, 
+  // SimpleGrid,  
+  // Text, 
+  // useTooltip, 
+  // IconButton, 
+  // MenuIcon
+Icon, Tabs, TabList, Tab, Image, Box, Heading } from "@chakra-ui/react";
 import dj from './vynil.png';
-// import navmp4 from './nav.mp4';
+// import navmp4 from './nav2.mp4';
+// import { GiGuitar } from 'react-icons/fa';
 import { RiAccountCircleLine } from 'react-icons/ri'
 import { FaMedal} from 'react-icons/fa'
 import { AiOutlineHome} from 'react-icons/ai'
-import { BiMusic, BiLogInCircle, BiLogOutCircle} from 'react-icons/bi'
+import { BiLogInCircle, BiLogOutCircle} from 'react-icons/bi'
 import { HiUserGroup} from 'react-icons/hi'
 import { TiUserAddOutline} from 'react-icons/ti'
-
-// import {Howl} from "howler";
-// import sam1 from './sam1.mp3'
-
-
-import React, { useEffect } from "react";
-import Auth from "./../utils/auth";
-import { Link as RouterLink, useParams } from "react-router-dom";
-import {
-  Tabs,
-  TabList,
-  Tab,
-  Image,
-  Center,
-  Spacer,
-  Box,
-  Heading,
-  Tooltip,
-  keyframes,
-  Icon,
-  HStack, Button, SimpleGrid,  Text, useTooltip
-} from "@chakra-ui/react";
+// import bgpic from './z.gif';
 import './logo.css';
 
-
-
 function Nav() {
-
-const {id} = useParams();
-useEffect(()=>{
+  
+  const {id} = useParams();
+  useEffect(()=>{
+    console.log(id)
+  },[2])
   console.log(id)
-},[2])
-console.log(id)
-if (id) {
-  return (
-
+  if (id) {
+    return (
       <header>
-        <Box
-        
+        <Box 
+        // m={{ base: 2, sm: 4, md: 6, lg: 8 }}
           display={{ base: "block", md: "flex", lg: "flex" }}
           align="center"
           p={4}
-          bgColor="
-          #040603"
-
+          bgColor="#040603"
+          
         >
-                     <Heading color="#faf0e6" m={5} p={2}>
-        sampled..
+                               <Heading color="#faf0e6" m={5} p={2}>
+        samfffxxxxxpled..
                   
           </Heading> 
-
-          <Image className='logo'
-          // animation={spin}
-          src={dj}
-          alt="sampled logo"
-          h="100"
+                   <Image className="logo"
+            // px={4}
+            h="100"
+            src={dj}
+            alt="sampled logo"
           ></Image>
           <Spacer />
-          <Center>
-            {/* <Tabs color="#1a535c" variant="unstyled" pt={8}> */}
-            <Tabs color="#fcbc73" variant="unstyled" pt={8}>
 
-            <TabList>
+          <Tabs justify="center" color="white" variant="unstyled" pt={8}>
+              <TabList>
+                <Tab>
+                  <RouterLink to={`/${id}`}> <Tooltip label='Home'><span><AiOutlineHome /></span></Tooltip></RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to={`/artists/${id}`}> <Tooltip label='Artists'><span><HiUserGroup /></span></Tooltip></RouterLink>
+
+                  {/* <RouterLink to={`/artists/${id}`}><Icon as={HiUserGroup} /></RouterLink> */}
+                </Tab>
+                <Tab>
+                <RouterLink to={`/winners/${id}`}> <Tooltip label='Winners'><span><FaMedal /></span></Tooltip></RouterLink>
+                  {/* <RouterLink to={`/winners/${id}`}><Icon as={FaMedal} /></RouterLink> */}
+                </Tab>
+                <Tab>
+                <RouterLink to={`/artistprofile/${id}`}> <Tooltip label='Artist Profile'><span><RiAccountCircleLine /></span></Tooltip></RouterLink>
+                  {/* <RouterLink to={`/artistprofile/${id}`}> <Icon as={RiAccountCircleLine} /></RouterLink> */}
+                </Tab>
               <Tab>
-                <RouterLink to={`/${id}`}> Home <Icon as={AiOutlineHome} /></RouterLink>
-                <useTooltip Tooltip label='Hover me'>
-                  <span>
-                  <Icon as={AiOutlineHome} />
-                  </span>
-                </useTooltip>
-              </Tab>
-              <Tab>
-                <RouterLink  to={`${id}/artists`}>Artists <Icon as={HiUserGroup} /></RouterLink>
-              </Tab>
-              <Tab>
-                <RouterLink  to={`/winners/${id}`}> Winners <Icon as={FaMedal} /></RouterLink>
-              </Tab>
-              <Tab>
-                <RouterLink  to={`/artistprofile/${id}`}> Artist Profile <Icon as={RiAccountCircleLine} /></RouterLink>
-              </Tab>              
-              <Tab>
-                <a href="/" onClick={() => Auth.logout()}>
-                  Logout
-                </a>
-                <Icon as={BiLogOutCircle} />
+                <a href="/" onClick={() => Auth.logout()}><RouterLink to={`/`}> <Tooltip label='Logout'><span><BiLogOutCircle /></span></Tooltip></RouterLink></a>
+                {/* <Icon as={BiLogOutCircle} /> */}
          
               </Tab>
-
             </TabList>
-            </Tabs>
-          </Center>
+          </Tabs>
         </Box>
       </header>
     );
   } else {
     return (
-      
       <header>
-        <Box
+        <Box mt={0} py={8} 
           display={{ base: "block", md: "flex", lg: "flex" }}
           align="center"
           p={4}
           bgColor="#040603"
+//                   bgImage={bgpic}
+        
+//   bgPosition="center"
+//   bgRepeat="no-repeat"
+//   bgSize="cover"
+//   width='100%'
+//   height='100%'
+//   bgAttachment= "fixed"
+// >
         >
-           <Heading  color="#faf0e6" m={5} p={2}>
-        sampled...
-                  
-          </Heading> 
-          <Image className='logo'
-            // animation={animation}
+                                        {/* <Image className="app-logo"
+                                          // px={4}
+                                          height = {40}
+                                          src={dj}
+                                          alt="fb"
+                                        ></Image> */}
+        {/* <video className="app-logo"
+            // px={4}
+            height = {40}
+            src={navmp4}
+            alt="fb"
+            autoPlay
+            loop
+            itemType="video/mp4"
+          ></video> */}
+
+    
+                    <Heading color="#faf0e6" m={5} p={2}>
+            samfffpled..
+          </Heading>
+          <Image className="logo"
+            // px={4}
+            h="100"
             src={dj}
             alt="sampled logo"
-            h="100"
           ></Image>
-       
+          <Spacer />
 
-                  <Spacer />
+          {/* <Spacer /> */}
+          <Box justify="center">
+            <Tabs color="#fcbc73" variant="unstyled" pt={8}>
+              <TabList>
+                <Tab>
+                <RouterLink to={`/`}> <Tooltip label='Home'><span><AiOutlineHome /></span></Tooltip></RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to={`/artists`}> <Tooltip label='Artists'><span><HiUserGroup /></span></Tooltip></RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to={`/winners`}> <Tooltip label='Winners'><span><FaMedal /></span></Tooltip></RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to={`/signup`}> <Tooltip label='Signup'><span><TiUserAddOutline /></span></Tooltip></RouterLink>
+                </Tab>
+                <Tab>
+                <RouterLink to={`/login}`}> <Tooltip label='Login'><span><BiLogInCircle /></span></Tooltip></RouterLink>
 
-          <Center>
-            <Box justify="center">
-                <Tabs color="#fcbc73" variant="unstyled" pt={8}>
-                    <TabList>
-                        <Tab>
-                          <RouterLink to="/"> <Icon as={AiOutlineHome} /></RouterLink>
-                        </Tab>
-                        <Tab>
-                          <RouterLink to="/artists"><Icon as={HiUserGroup} /></RouterLink>
-                        </Tab>
-                        <Tab>
-                          <RouterLink to="/winners"><Icon as={FaMedal} /></RouterLink>
-                        </Tab>
-                        <Tab>
-                          <RouterLink to="/signup"><Icon as={TiUserAddOutline} /></RouterLink>
-                        </Tab>
-                        <Tab>
-                          <RouterLink to="/login"> <Icon as={BiLogInCircle} /></RouterLink>
-                        </Tab>
-                        {/* <Tab>
-                          <RouterLink to="/artistprofile"> <Icon as={RiAccountCircleLine} /></RouterLink>
-                        </Tab>               */}
-                    </TabList>
-                </Tabs>
-            </Box>
-          </Center>
+                  {/* <RouterLink to="/login"> <Icon as={BiLogInCircle} /></RouterLink> */}
+                </Tab>
+              
+              </TabList>
+            </Tabs>
           </Box>
-          </header>
-    
-        //   <Box>   
-
-        //           {/* <Button onClick={() => sound.play()} type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
-        //         Sign In
-        //         </Button> */}
-        // </Box>
+        </Box>
+      </header>
     );
   }
 }
 
 export default Nav;
 
-// </header>
 
-// <Box bg="#fcbc73" color="000000"><h4> THIS WEEKS SAMPLES</h4>
-        
-// <HStack display="flex" alignItems="center" justifyContent="space-between">
+      /* <section class="showcase">
+<header>
+  <h2 class="logo">Travel</h2>
+  <div class="toggle"></div>
+</header>
+<video  src={dj} muted loop autoplay></video>
+<div class="overlay"></div>
+</div> */
 
-//           <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
-//               Button
-//             </Button>
-//             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
-//               Button
-//             </Button>
-//             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
-//               Button
-//             </Button>
-//             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
-//               Button
-//             </Button>
-//             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
-//               Button
-//             </Button>
-//         </HStack>
-//         </Box>
+
+
+
+// .showcase
+// {
+//   position: absolute;
+//   right: 0;
+//   width: 100%;
+//   min-height: 100vh;
+//   padding: 100px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   background: #111;
+//   transition: 0.5s;
+//   z-index: 2;
+// }
+
+// .showcase video
+// {
+//   position: absolute;
+//   object-fit: cover;
+//   opacity: 0.8;
+// }
+// .overlay
+// {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: #03a9f4;
+//   mix-blend-mode: overlay;
+// }
+
+
+
+// export default Nav;
+
+//                           // </header>
+
+                          // <Box bg="#fcbc73" color="000000"><h4> THIS WEEKS SAMPLES</h4>
+                                  
+                          // <HStack display="flex" alignItems="center" justifyContent="space-between">
+
+                          //           <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
+                          //               Button
+                          //             </Button>
+                          //             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
+                          //               Button
+                          //             </Button>
+                          //             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
+                          //               Button
+                          //             </Button>
+                          //             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
+                          //               Button
+                          //             </Button>
+                          //             <Button lefticon={BiMusic} color="#000000" size='sm' variant='outline'>
+                          //               Button
+                          //             </Button>
+                          //         </HStack>
+                          //         </Box>

@@ -36,7 +36,7 @@ import Artistprofile from './pages/Artistprofile';
               // import { setContext } from '@apollo/client/link/context';
 
               const httpLink = createHttpLink({
-                uri: 'http://localhost:3001/graphql',
+                uri: 'http://localhost:4000/graphql',
               });
 
               const authLink = setContext((_, { headers }) => {
@@ -71,9 +71,9 @@ function App() {
             <Route exact path="/signup"><Signup /></Route>
             <Route exact path="/login"><Login /></Route>
             <Route exact path="/:id"><Home /></Route>
-            <Route  path="/winners/:id"><Winners /></Route>
-            <Route  path="/:id/artists"><Artists /></Route>
-            <Route path="/artistprofile/:id"><Artistprofile /></Route>
+            <Route  exact path="/winners/:id"><Winners /></Route>
+            <Route  exact path="/artists/:id"><Artists /></Route>
+            <Route exact path="/artistprofile/:id"><Artistprofile /></Route>
           </Switch>
           {/* <Footer /> */}
       </Router>

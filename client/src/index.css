@@ -1,6 +1,6 @@
 body {
   font-family: 'Rubik', sans-serif;
-background-color: aqua;
+/* background-color: aqua; */
 
 }
 
@@ -16,14 +16,4 @@ h6 {
 .small {
   font-weight: 300;
   font-style: italic;
-}
-
-body {
-  background-image: url("./3233850.png");
-
-  height: 100%;
-  width: 100%;
-
-  background-position: center;
-  background-size: cover;
 }

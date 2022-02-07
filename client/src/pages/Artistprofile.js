@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Nav from "../components/Navbar";
-import { Icon, FormControl, FormLabel, Input, Button, Box, Heading, Center } from "@chakra-ui/react";
-import { RiSpotifyLine, RiSoundcloudLine, RiYoutubeLine, RiAppleLine, RiInformationLine} from 'react-icons/ri'
+import {
+  Icon,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Box,
+  Heading,
+  Center,
+  Flex
+} from "@chakra-ui/react";
+import {
+  RiSpotifyLine,
+  RiSoundcloudLine,
+  RiYoutubeLine,
+  RiAppleLine,
+  RiInformationLine,
+} from "react-icons/ri";
 import { useQuery, gql } from "@apollo/client";
 import { GET_USER } from "../GraphQl/Queries";
 import { useMutation } from '@apollo/client'
 import { CREATE_SONG_MUTATION, UPDATE_PROFILE } from '../GraphQl/Mutations';
+import bgpic from '../components/z.gif';
+
 
 const Artistprofile = () => {
 
@@ -66,8 +84,20 @@ const Artistprofile = () => {
   }, [data]);
   return (
     <div>
-  <Nav/>    
-  <Box>
+
+      
+      <Nav/>
+
+      <Flex 
+                bgImage={bgpic}
+                bgPosition="center"
+                bgRepeat="no-repeat"
+                bgSize="cover"
+                width='100%'
+                height='100%'
+                bgAttachment= "fixed"
+      width="full" align="center" justifyContent="center">
+        <Box>
           <Center>
             <Heading color="#1a535c" m={4} p={4}>
               Your Profile
@@ -200,6 +230,7 @@ const Artistprofile = () => {
             </Button>
             </form>
           </Box>
+        </Flex>
     </div>
   );
 };
