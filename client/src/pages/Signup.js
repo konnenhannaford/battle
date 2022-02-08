@@ -85,7 +85,7 @@ const Signup = () => {
                     // height='100%'
                     // bgAttachment= "fixed"
      width="full" align="center" justifyContent="center">
-        <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
+        <Box p={8} color="black" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
             <Heading>Signup</Heading>
           </Box>

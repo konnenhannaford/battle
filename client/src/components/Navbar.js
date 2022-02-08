@@ -56,7 +56,7 @@ function Nav() {
             alt="sampled logo"
           ></Image>
           <Spacer />
-
+          <Box justify="center">
           <Tabs align="center" justify="center" color="white" variant="unstyled" pt={8}>
               <TabList>
                 <Tab>
@@ -83,6 +83,7 @@ function Nav() {
                 {/* </Tab> */} 
             </TabList>
           </Tabs>
+          </Box>
         </Box>
       </header>
     );
@@ -134,7 +135,7 @@ function Nav() {
           <Spacer />
 
           <Box justify="center">
-            <Tabs             h="100"
+            <Tabs align="center" justify="center" variant="unstyled" 
 color="#faf0e6" pt={8}>
               <TabList>
                 <Tab>

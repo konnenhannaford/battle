@@ -13,7 +13,7 @@
 // } from '@chakra-ui/react';
 // import { useHistory } from 'react-router-dom';
 // import bgpic from '../components/z.gif';
-// import Nav from "../components/Navbar";
+import Nav from "../components/Navbar";
 
 
   
@@ -129,6 +129,8 @@ const Login = () => {
     }
   },[loginInput])
   return (
+    <div>
+      <Nav/>
       <Flex width="full" align="center" justifyContent="center">
         <Box p={8} color="pink" maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
           <Box textAlign="center">
@@ -151,6 +153,7 @@ const Login = () => {
           </Box>
         </Box>
       </Flex>
+      </div>
     );
   }
   export default Login;

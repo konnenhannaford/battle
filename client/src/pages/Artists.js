@@ -51,6 +51,8 @@ useEffect(() => {
           </Center>
           <SimpleGrid
               // bg='gray.50'
+              m="auto"
+              w="75%"
               columns={{ sm: 1, md: 2 }}
               spacing='8'
               p='10'

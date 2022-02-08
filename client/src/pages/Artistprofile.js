@@ -113,7 +113,7 @@ const Artistprofile = () => {
 
       <div>
       <Nav/>
-<Flex    display="inline" width="100px" align="center" justifyContent="center">
+<Flex    display="inline" width="full" align="center" justifyContent="center">
         <Box>
           {/* <Center> */}
             <Heading  className="blurb" textAlign="center" color="#faf0e6">
@@ -121,7 +121,7 @@ const Artistprofile = () => {
             </Heading>
           {/* </Center> */}
         </Box>
-        <Box my={4} textAlign="left" boxShadow="xl" p="6" rounded="md" bg="white">
+        <Box  align="center" justifyContent="center" maxWidth="500px" my={4} textAlign="left" boxShadow="xl" p="6" rounded="md" bg="transparent">
           <form onSubmit={handleFormSubmit}>
           <FormControl>
             <FormLabel>
