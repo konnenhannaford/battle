@@ -19,12 +19,23 @@ import {
   RiAppleLine,
   RiInformationLine,
 } from "react-icons/ri";
+import {
+  MdOutlineMailOutline
+} from "react-icons/md";
+
+import {
+  GrGroup,
+  GrMusic
+} from "react-icons/gr";
+
+
 import { useQuery, gql } from "@apollo/client";
 import { GET_USER } from "../GraphQl/Queries";
 import { useMutation } from '@apollo/client'
 import { CREATE_SONG_MUTATION, UPDATE_PROFILE } from '../GraphQl/Mutations';
 import bgpic from '../components/z.gif';
 
+import '../components/logo.css';
 
 const Artistprofile = () => {
 
@@ -89,35 +100,34 @@ const Artistprofile = () => {
   }, [])
   
   return (
-    <div>
+ 
+      // <Flex 
+      //           bgImage={bgpic}
+      //           bgPosition="center"
+      //           bgRepeat="no-repeat"
+      //           bgSize="cover"
+      //           width='100%'
+      //           height='100%'
+      //           bgAttachment= "fixed"
+      // width="full" align="center" justifyContent="center">   
 
-      
+      <div>
       <Nav/>
-
-      <Flex 
-                bgImage={bgpic}
-                bgPosition="center"
-                bgRepeat="no-repeat"
-                bgSize="cover"
-                width='100%'
-                height='100%'
-                bgAttachment= "fixed"
-      width="full" align="center" justifyContent="center">
+<Flex    display="inline" width="100px" align="center" justifyContent="center">
         <Box>
-          <Center>
-            <Heading color="#1a535c" m={4} p={4}>
+          {/* <Center> */}
+            <Heading  className="blurb" textAlign="center" color="#faf0e6">
               Your Profile
             </Heading>
-          </Center>
+          {/* </Center> */}
         </Box>
-        <Box boxShadow="xl" p="6" rounded="md" bg="white">
-          <h1> Artist 1 </h1>
+        <Box my={4} textAlign="left" boxShadow="xl" p="6" rounded="md" bg="white">
           <form onSubmit={handleFormSubmit}>
           <FormControl>
             <FormLabel>
-              <h3>
+              <h3 >
                 {" "}
-                <Icon as={RiInformationLine} />
+                <Icon as={MdOutlineMailOutline} />
                 email{" "}
               </h3>
             </FormLabel>
@@ -131,7 +141,7 @@ const Artistprofile = () => {
       <FormLabel>
               <h3>
                 {" "}
-                <Icon as={RiInformationLine} />* Artist Name:{" "}
+                <Icon as={GrGroup} />Artist Name:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -144,7 +154,7 @@ const Artistprofile = () => {
             <FormLabel>
               <h3>
                 {" "}
-                <Icon as={RiInformationLine} />* Artist info:{" "}
+                <Icon as={RiInformationLine} />Artist info:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -157,7 +167,7 @@ const Artistprofile = () => {
             <FormLabel>
               <h3>
                 {" "}
-                <Icon as={RiSpotifyLine} /> * Spotify:{" "}
+                <Icon as={RiSpotifyLine} />Spotify:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -171,7 +181,7 @@ const Artistprofile = () => {
               {" "}
               <h3>
                 {" "}
-                <Icon as={RiYoutubeLine} />* Youtube:{" "}
+                <Icon as={RiYoutubeLine} />Youtube:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -185,7 +195,7 @@ const Artistprofile = () => {
               {" "}
               <h3>
                 {" "}
-                <Icon as={RiSoundcloudLine} />* Soundcloud:{" "}
+                <Icon as={RiSoundcloudLine} />Soundcloud:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -198,7 +208,7 @@ const Artistprofile = () => {
             <FormLabel>
               <h3>
                 {" "}
-                <Icon as={RiAppleLine} />* Apple:{" "}
+                <Icon as={RiAppleLine} />Apple:{" "}
               </h3>
             </FormLabel>
             <Input
@@ -223,21 +233,21 @@ const Artistprofile = () => {
         <Box boxShadow='xl' p='6' rounded='md' bg='white'>
             <form onSubmit={handleSongSubmit}>
               <FormControl>
-                <FormLabel><h3> <Icon as={RiAppleLine} /> SONG NAME: </h3></FormLabel>
+                <FormLabel><h3> <Icon as={GrMusic} /> ARTIST - SONG NAME: </h3></FormLabel>
                 <Input type="text"name="submission"onChange={handleSongChange}
-                value={songData.submission} placeholder="provide a name for your song" />
+                value={songData.submission} placeholder="artist and song name" />
              
-              <FormLabel><h3> <Icon as={RiAppleLine} /> SONG UPLOAD: </h3></FormLabel>
+              <FormLabel><h3> <Icon as={GrMusic} /> SONG UPLOAD: </h3></FormLabel>
                 <Input type="text"name="submissionInfo"onChange={handleSongChange}
-                value={songData.submissionInfo} placeholder="provide a link for your song" />
+                value={songData.submissionInfo} placeholder="song link url" />
               </FormControl>
               <Button onClick={() => refetch()} type="submit" variantColor="teal" variant="outline" width="full" mt={4}>
             Add your song
             </Button>
             </form>
           </Box>
-        </Flex>
-    </div>
+          </Flex>
+          </div>
   );
 };
 

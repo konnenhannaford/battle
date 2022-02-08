@@ -6,6 +6,9 @@ import { useQuery, gql } from "@apollo/client";
 import { LOAD_DATA } from "../GraphQl/Queries";
 import Nav from "../components/Navbar";
 import bgpic from '../components/z.gif';
+import {
+  GrGroup
+} from "react-icons/gr";
 
 
 const Artists = () => {
@@ -42,7 +45,7 @@ useEffect(() => {
                   //  bgAttachment= "fixed"
                    >
           <Center>
-            <Heading color="#1a535c" m={4} p={4}>
+            <Heading color="linen" m={4} p={4}>
             artists
             </Heading>
           </Center>
@@ -59,13 +62,13 @@ useEffect(() => {
              
              return (
              <Box boxShadow='xl' p='6' rounded='md' bg='white'>
-              <h1> Artist 1 </h1>
-                            <h3>  <Icon as={RiInformationLine} />: {artist.artist_name} </h3>
-                            <h3>  <Icon as={RiInformationLine} />: {artist.artist_info} </h3>
-                            <h3>  <Icon as={RiSpotifyLine} />: {artist.spotify} </h3>
-                            <h3> <Icon as={RiYoutubeLine} />: {artist.youtube} </h3>
-                            <h3> <Icon as={RiSoundcloudLine} />:{artist.soundcloud} </h3>
-                            <h3> <Icon as={RiAppleLine} />: {artist.apple}</h3>
+              
+                            <h3>  <Icon as={GrGroup} /> {artist.artist_name} </h3>
+                            <h3>  <Icon as={RiInformationLine} /> {artist.artist_info} </h3>
+                            <h3>  <Icon as={RiSpotifyLine} /> {artist.spotify} </h3>
+                            <h3> <Icon as={RiYoutubeLine} />{artist.youtube} </h3>
+                            <h3> <Icon as={RiSoundcloudLine} />{artist.soundcloud} </h3>
+                            <h3> <Icon as={RiAppleLine} /> {artist.apple}</h3>
               </Box>
 
              )})}

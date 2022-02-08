@@ -37,7 +37,7 @@ import { LOAD_DATA, DEL_SONG} from "../GraphQl/Queries";
                   html5: true,
                 })
                 const sound4= new Howl ({
-                  src: ["soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"],
+                  src: ["https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"],
                   html5: true,
                 })
                 const sound5 = new Howl ({
@@ -114,7 +114,8 @@ console.log(delSong)
   // bgAttachment= "fixed"
 >
           <Text  color="#faf0e6"  className="blurb" textAlign={ 'center' } fontSize={30}>
-            Sampled is a  site to post remixes of songs.  Users will download the samples uploaded each week and post a remix containign at least 3 of the provided samples.  Once uploaded, users will vote each week and the winning song will be added to our winners page
+            Sampled is a site to post remixes of songs.  Users will download the samples uploaded each week and post a remix containing at least 3 of the provided samples.  
+            Once uploaded, users will vote each week and the winning song will be crowned champions
           </Text>
 <Box mt={20}>
           <Text textAlign={ 'center' } >THIS WEEKS SAMPLES</Text>
@@ -130,26 +131,26 @@ console.log(delSong)
                     
                     <Box  justify="center" align="centre" boxShadow='xl' p='2' rounded='md' bg='blue.500'>
                     {/* <div onClick={() => sound.play()} > */}
-                    <h1> Sample 1</h1>
+                    <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"> SAMPLE 1 </a>
                     <BiPlayCircle onClick={() => sound1.play()} align="centre"/>< BiPauseCircle onClick={() => sound1.pause()}/>
                     {/* </div> */}
                     </Box>
                     <Box boxShadow='xl' p='2' rounded='md' bg='blue.500'>
                     {/* <div onClick={() => sound.pause()} > */}
-                    <h1> Sample 2</h1>
+                    <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"> SAMPLE 2 </a>
                     <BiPlayCircle onClick={() => sound2.play()} align="centre"/>< BiPauseCircle onClick={() => sound2.pause()}/>
                     {/* </div> */}
                     </Box>
                     <Box boxShadow='xl' p='2' rounded='md' bg='blue.500'>
-                    <h1> Sample 3 </h1>
+                    <a href="ttps://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"> SAMPLE 3 </a>
                     <BiPlayCircle onClick={() => sound3.play()} align="centre"/>< BiPauseCircle onClick={() => sound3.pause()}/>
                     </Box>
                     <Box boxShadow='xl' p='2' rounded='md' bg='blue.500'>
-                    <h1> Sample 4 </h1>
+                    <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"> SAMPLE 4 </a>
                     <BiPlayCircle onClick={() => sound4.play()} align="centre"/>< BiPauseCircle onClick={() => sound4.pause()}/>
                     </Box>
                     <Box boxShadow='xl' p='2' rounded='md' bg='blue.500'>
-                    <h1> Sample 5 </h1>
+                    <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"> SAMPLE 5 </a>
                     <BiPlayCircle onClick={() => sound5.play()} align="centre"/>< BiPauseCircle onClick={() => sound5.pause()}/>
                     </Box>
                     </SimpleGrid>
