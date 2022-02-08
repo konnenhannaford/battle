@@ -1,4 +1,4 @@
-![Konnen Hannaford](./client/src/_HH_DJ2PP2.png)
+![Konnen Hannaford](./client/src/components/ss2.png)
 # Sampled...
 ### A beat battle comp
 
