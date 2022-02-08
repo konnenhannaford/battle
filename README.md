@@ -1,118 +1,113 @@
-lsof -i tcp:3000
-kill -9 PID
-
-        i need to be able to update user profile links
-        i need user proifle to show on dashboard/profile page to be updated and artistts page 
-        i need to set up auth 
-        i need to know why info wont show
-        need to update profile and delete songs
-                                // should this be id_token in app js headers line 45?
+![Konnen Hannaford](./client/src/_HH_DJ2PP2.png)
+# Sampled...
+### A beat battle comp
 
 
-get ui working - upadte fields / 
+[![Github Commits](https://img.shields.io/github/commit-activity/w/konnenhannaford/battle)](https://github.com/konnenhannaford/battle/commits)
+[![GitHub latest commit](https://img.shields.io/github/last-commit/konnenhannaford/battle)](https://github.com/konnenhannaford/battle/branches)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
+[![GitHub followers](https://img.shields.io/github/followers/konnenhannaford.svg)]()
+![GitHub repo size](https://img.shields.io/github/repo-size/konnenhannaford/battle)
+[![GitHub issues](https://img.shields.io/github/issues/konnenhannaford/battle)](https://img.shields.io/github/issues/konnenhannaford/battle)
 
-// use this an dauth.js in config
-// use jwt review
-// need to add auth stuff back in  and have done by thursday?
+![GitHub language count](https://img.shields.io/github/languages/count/konnenhannaford/battle)
 
-HOME PAGE 
----shows sample of music to download and entries of each week
----if logged in, will show band profile link, log out and view winners page at the navbar and show the homepage with the songs submitted to the comp and give you the ability to play the song and vote on the song
----if not logged in, will show band profile link to bands page, login/signup and view winners page at the navbar
+### Table of Contents  
+  
+   1. [Project Description](#1-description)
+   2. [Technology Used](#2-technology)
+   3. [Installation](#3-installation)
+   4. [Usage](#4-usage)
+   5. [License](#5-license)
+   6. [Contribute](#6-how-to-contribute)
+   7. [Tests](#7-tests)
+   8. [Checklist](#8-checklist)
 
-LOGIN/SIGNUP
----login will ask for usenrame, password
----signup will ask for username, password, email and if an artist
----if an artist, it will ask to fill in the stuff under attist profile info and add this to a band page, you will then be lead to the homescreen where you can submit and view/play other songs
+---
+### 1. Description  
 
-ARTISTS
----if signed in as an artist, it will show a box under the music sample on the homepage askign if you want to submit a song
----when you click this, it will ask you to upload a mp3 or wav file
----when this is added it will show on the bands page and the home page along with other entries from other artists
+**What is this project?**  
+* An application for users to upload and discover other users remixed music  
 
-WINNERS
----this will show all winners of each week with info on the artist and the songs
- (this will grow as each competition ends)
+**Why this project?**  
+* Music production has become alot more common in recent years with more DAW's becoming available and more users gaining access to these tools.  As one of these bedroom producers, I wanted to create an app that allowed for users to post remixes that they make and view those psoted by others.  With the implementation of voiting and compeititons, this type of service could grow for spreading music and growing artist relationships.  
 
-QUERIES
----if i want find an artist, look up theiur name or by artist id 
-if a non-musician signs up as a user, that doesnt need to be shown anywhere apart from on the backend  to see users so maybe a query for all users?
----if a musician signs up as a user, that would need to go to the artist db and get added to the artists/band profile page
+#### Screengrab
 
-
-
-
-
+![Screengrab](./sssite.png) 
 
 
+**What problem does this project solve?**  
+* Users who want the ability of sharing their remixes and competing against others
 
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Lessons learnt?**  
+* GraphQL is powerful but requires alot of further practice 
+* React has been used so familiarity with this has grown
+* Apollo is something I need to practice A LOT as I had countless errors working with it
+* Understanding Heroku and how to post
 
-## Available Scripts
+---
+### 2. Technology
 
-In the project directory, you can run:
+- APOLLO
+- MONGOdb
+- EXPRESS
+- NODE
+- NPM
+- REACT
+- GRAPHQL
+- HOWLER
+- CHAKRA
+- REACT-ICONS
 
-### `npm start`
+  
+---
+### 3. Installation 
+You can download the source code from [my Github repository](https://github.com/konnenhannaford/battle) and unzip the files to a location on your computer. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. Usage  
+- Running npm i after downloading will bring in any required dpendencies
+- Npm start will start the sevrer an client side and will load the app on a local host
+- Users can use the site as normal by accessign the Heroku link
+- Users will sign up as a new artist filling in info about them
+- This gets added to the artists page and can be updated in the update profile page
+- Users can upload songs from update profile screena nd this gets added to the home page
+- The user if logged in can dlete this song from the home page
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
+### 5. License  
+ The works in this repository are subject to:  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![GitHub](https://img.shields.io/github/license/Mark33Mark/movie-scheduler)](doc/LICENSE.md)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+### 6. Contributers  
+[Konnen Hannaford](https://github.com/konnenhannaford)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can contribute by opening a pull request or submitting an issue.
 
-### `npm run eject`
+ If you would like to contribute, please comply with the Contributor Covenant Code of Conduct:  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](doc/code_of_conduct.md)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
+### 7. Tests  
+- No unit tests have been prepared for this project.  Testing done on my desktop running different scenarios.  A problem exists causing the application to glitch when trying to change an employee after deleting their manager.  Needs to be resolved.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
+### 8. Checklist  
+ All actions not checked are still to be completed:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ [x]  GitHub repository containing your application code.  
+ [x]  Application connects to a MONGO database using GraphQL and Apollo  packages.
+ [x]  The GitHub repository contains all the application code.  
+ [x]  Repository has a unique name; follows best practice for file structure; and naming conventions.  
+ [x]  Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.  
+ [x]  Repository contains multiple descriptive commit messages.  
+ [x]  Repository contains a README file with description, screenshot and link to deployed application.  
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
