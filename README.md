@@ -12,6 +12,12 @@
 
 ![GitHub language count](https://img.shields.io/github/languages/count/konnenhannaford/battle)
 
+Github Repo
+https://github.com/konnenhannaford/battle
+
+Heroku Page
+https://sampledbattle.herokuapp.com/
+
 ### Table of Contents  
   
    1. [Project Description](#1-description)
